@@ -1494,14 +1494,17 @@ button, a { transition: var(--transition); }
 
 .cta-btn::before { background: var(--black); }
 
+
+
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
 
 .footer {
   background: var(--white);
-  padding: 3rem 2rem; /* Match padding style of other sections */
+  padding: 3rem 2rem 5rem; /* Added padding-bottom for header-bottom-actions overlap */
   color: var(--black);
+  position: relative; /* Ensure proper stacking */
 }
 
 .footer-top .container {
@@ -1642,6 +1645,13 @@ button, a { transition: var(--transition); }
   text-align: center;
 }
 
+/* Ensure container centers content on all devices */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box; /* Reinforce box-sizing */
+}
+
 .copyright {
   font-size: 1.3rem;
   color: var(--light-color);
@@ -1659,7 +1669,7 @@ button, a { transition: var(--transition); }
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .footer {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 4rem; /* Adjusted padding-bottom */
   }
 
   .footer-top .container {
@@ -1735,9 +1745,9 @@ button, a { transition: var(--transition); }
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 390px) { /* Added breakpoint for modern phones like iPhone 14 (390px) */
   .footer {
-    padding: 1.5rem 0.8rem;
+    padding: 1.5rem 0.5rem 3.5rem; /* Adjusted padding-bottom */
   }
 
   .logo-content i {
@@ -1773,6 +1783,10 @@ button, a { transition: var(--transition); }
 
   .footer-list-title {
     font-size: 1.4rem;
+  }
+
+  .footer-list-title::after {
+    width: 1.8rem;
   }
 
   .footer-link {
