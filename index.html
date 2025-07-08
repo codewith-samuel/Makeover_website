@@ -7,7 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Makeover Real Estate & Building- Find your dream house</title>
-
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- 
     - favicon
   -->
@@ -35,188 +39,887 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+
+  <style>
+    :root {
+      --orange-soda: #ff6b35;
+      --cultured-2: #f8f9fa;
+      --dark-jungle-green: #2d3436;
+      --cadet: #636e72;
+      --misty-rose: #ffe4e1;
+      --white: #ffffff;
+      --black: #000000;
+      --yellow: #f5bf23;
+      --light-color: #666;
+      --light-bg: #eee;
+      --raisin-black-1: #2c2c2c;
+      --fs-1: 2.5rem;
+      --fs-2: 1.875rem;
+      --fs-5: 1rem;
+      --fw-600: 600;
+      --fw-700: 700;
+      --section-padding: 80px;
+      --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+      --border: .1rem solid rgba(0,0,0,.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--dark-jungle-green);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--orange-soda);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: var(--fw-600);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      background: var(--dark-jungle-green);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Header Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: var(--shadow-2);
+    }
+
+    .header-top {
+      background: var(--dark-jungle-green);
+      padding: 10px 0;
+      color: var(--white);
+    }
+
+    .header-top .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-top-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .header-top-social-list {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+
+    .header-top-social-link {
+      color: var(--white);
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .header-top-social-link:hover {
+      color: var(--orange-soda);
+    }
+
+    .header-bottom {
+      padding: 15px 0;
+    }
+
+    .header-bottom .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-content i {
+      font-size: 2rem;
+      color: var(--orange-soda);
+    }
+
+    .logo-text {
+      font-size: 1.2rem;
+      font-weight: var(--fw-700);
+      color: var(--dark-jungle-green);
+    }
+
+    .navbar-list {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .navbar-link {
+      color: var(--dark-jungle-green);
+      text-decoration: none;
+      font-weight: var(--fw-600);
+      transition: color 0.3s ease;
+    }
+
+    .navbar-link:hover {
+      color: var(--orange-soda);
+    }
+
+    /* Enhanced Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--cultured-2) 0%, #e8f4f8 100%);
+      margin-top: 140px;
+    }
+
+    .hero-slideshow {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+    }
+
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: flex;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .hero-slide-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-text-content {
+      z-index: 2;
+    }
+
+    .hero-subtitle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: var(--orange-soda);
+      font-weight: var(--fw-600);
+    }
+
+    .hero-title {
+      font-size: var(--fs-1);
+      font-weight: var(--fw-700);
+      color: var(--dark-jungle-green);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-description {
+      font-size: var(--fs-5);
+      color: var(--cadet);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: var(--shadow-2);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+      background: var(--white);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: var(--shadow-2);
+    }
+
+    .hero-stats-item {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-stats-number {
+      font-size: 1.5rem;
+      font-weight: var(--fw-700);
+      color: var(--orange-soda);
+    }
+
+    .hero-stats-label {
+      font-size: 0.9rem;
+      color: var(--cadet);
+    }
+
+    /* Navigation Dots */
+    .hero-navigation {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .hero-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid var(--white);
+    }
+
+    .hero-dot.active {
+      background: var(--orange-soda);
+      transform: scale(1.2);
+    }
+
+    /* Progress Bar */
+    .hero-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 4px;
+      background: rgba(255, 107, 53, 0.3);
+      z-index: 10;
+    }
+
+    .hero-progress-bar {
+      height: 100%;
+      background: var(--orange-soda);
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* Slide Controls - Hidden */
+    .hero-controls {
+      display: none;
+    }
+
+    .hero-control {
+      display: none;
+    }
+
+    /* Slide Animations */
+    .hero-slide.slide-in-right {
+      animation: slideInRight 1s ease-out;
+    }
+
+    .hero-slide.slide-in-left {
+      animation: slideInLeft 1s ease-out;
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 768px) {
+      .hero {
+        margin-top: 120px; /* Increased to prevent navbar overlap */
+        min-height: 80vh;
+      }
+
+      .hero-slideshow {
+        min-height: 500px;
+      }
+
+      .hero-slide {
+        padding: 20px 15px;
+      }
+
+      .hero-slide-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .hero-text-content {
+        order: 1;
+      }
+
+      .hero-visual {
+        order: 2;
+        height: 250px;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-description {
+        font-size: 0.9rem;
+      }
+
+      .hero-stats {
+        position: static;
+        margin-top: 15px;
+        padding: 15px;
+      }
+
+      .hero-stats-item {
+        margin-bottom: 8px;
+      }
+
+      .hero-stats-number {
+        font-size: 1.2rem;
+      }
+
+      .hero-stats-label {
+        font-size: 0.8rem;
+      }
+
+      .navbar-list {
+        display: none;
+      }
+
+      .logo-text {
+        font-size: 1rem;
+      }
+
+      .hero-navigation {
+        bottom: 20px;
+      }
+
+      .hero-dot {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        margin-top: 100px; /* Increased to prevent navbar overlap */
+        min-height: 70vh;
+      }
+
+      .hero-slideshow {
+        min-height: 450px;
+      }
+
+      .hero-slide {
+        padding: 15px 10px;
+      }
+
+      .hero-slide-content {
+        gap: 20px;
+      }
+
+      .hero-visual {
+        height: 200px;
+      }
+
+      .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .hero-description {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+      }
+
+      .hero-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+      }
+
+      .hero-stats {
+        padding: 12px;
+      }
+
+      .hero-stats-item {
+        margin-bottom: 5px;
+      }
+
+      .hero-stats-number {
+        font-size: 1rem;
+      }
+
+      .hero-stats-label {
+        font-size: 0.7rem;
+      }
+
+      .header-top-link span {
+        display: none;
+      }
+
+      .header-top-social-list {
+        gap: 10px;
+      }
+
+      .logo-content i {
+        font-size: 1.5rem;
+      }
+
+      .logo-text {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-title {
+        font-size: 1.3rem;
+      }
+      
+      .hero-visual {
+        height: 180px;
+      }
+      
+      .hero-slide-content {
+        gap: 15px;
+      }
+    }
+  </style>
+  
 </head>
 
 <body>
-
-  <!-- 
-    - #HEADER
-  -->
-
-  <header class="header" data-header>
-
-    <div class="overlay" data-overlay></div>
-
+  <!-- Header -->
+  <header class="header">
     <div class="header-top">
       <div class="container">
-
-        <ul class="header-top-list">
-
-          <li>
-            <a href="mailto:realestateandbuildingcompany@gmail.com" class="header-top-link">
-              <ion-icon name="mail-outline"></ion-icon>
-
-              <span>realestateandbuildingcompany@gmail.com</span>
-            </a>
-          </li>
-
-          <li>
-           <!-- <a href="#" class="header-top-link">
-              <ion-icon name="location-outline"></ion-icon>
-
-              <address>15/A, Nest Tower, NYC</address>
-            </a> -->
-          </li>
-
-        </ul>
-
-        <div class="wrapper">
-          <ul class="header-top-social-list">
-
-            <li>
-              <a href="#" class="header-top-social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="header-top-social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="header-top-social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="header-top-social-link">
-                <ion-icon name="logo-pinterest"></ion-icon>
-              </a>
-            </li>
-
-          </ul>
-
-          <!-- <button class="header-top-btn">Add Listing</button> -->
+        <div>
+          <a href="mailto:realestateandbuildingcompany@gmail.com" class="header-top-link">
+            <i class="fas fa-envelope"></i>
+            <span>realestateandbuildingcompany@gmail.com</span>
+          </a>
         </div>
-
+        <ul class="header-top-social-list">
+          <li><a href="#" class="header-top-social-link"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#" class="header-top-social-link"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#" class="header-top-social-link"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#" class="header-top-social-link"><i class="fab fa-pinterest"></i></a></li>
+        </ul>
       </div>
     </div>
-
     <div class="header-bottom">
       <div class="container">
         <a href="#" class="logo">
-  <div class="logo-content">
-    <i class="fas fa-building"></i>
-    <span class="logo-text">Makeover Real Estate & Building Contractors Limited</span>
-  </div>
-</a>
-
-        
-
-        <nav class="navbar" data-navbar>
-
-          <div class="navbar-top">
-
-            <a href="#" class="logo">
-  <div class="logo-content">
-    <i class="fas fa-building"></i>
-    <span class="logo-text">Makeover Real Estate & Building Contractors Limited</span>
-  </div>
-</a>
-            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
+          <div class="logo-content">
+            <i class="fas fa-building"></i>
+            <span class="logo-text">Makeover Real Estate & Building</span>
           </div>
-
-          <div class="navbar-bottom">
-            <ul class="navbar-list">
-
-              <li>
-                <a href="#home" class="navbar-link" data-nav-link>Home</a>
-              </li>
-
-              <li>
-                <a href="#about" class="navbar-link" data-nav-link>About</a>
-              </li>
-
-              <li>
-                <a href="#services" class="navbar-link" data-nav-link>Services</a>
-              </li>
-
-              <li>
-                <a href="#projects" class="navbar-link" data-nav-link>projects</a>
-              </li>
-
-              
-              <li>
-                <a href="#contact-us" class="navbar-link" data-nav-link>Our team</a>
-              </li>
-
-            </ul>
-          </div>
-
+        </a>
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li><a href="#home" class="navbar-link">Home</a></li>
+            <li><a href="#about" class="navbar-link">About</a></li>
+            <li><a href="#services" class="navbar-link">Services</a></li>
+            <li><a href="#projects" class="navbar-link">Projects</a></li>
+            <li><a href="#contact" class="navbar-link">Contact</a></li>
+          </ul>
         </nav>
-
-          <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
-            <ion-icon name="menu-outline"></ion-icon>
-
-            <span>Menu</span>
-          </button>
-
-        </div>
-        
-
       </div>
     </div>
-
   </header>
 
-
-
-
-
-  <main>
-    <article>
-
-      <!-- 
-        - #HERO
-      -->
-
-      <section class="hero" id="home">
-        <div class="container">
-
-          <div class="hero-content">
-
+  <!-- Enhanced Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-slideshow">
+      <!-- Slide 1: Welcome/Main -->
+      <div class="hero-slide active">
+        <div class="hero-slide-content">
+          <div class="hero-text-content">
             <p class="hero-subtitle">
-              <ion-icon name="home"></ion-icon>
-
+              <i class="fas fa-home"></i>
               <span>Real Estate & Construction Company</span>
             </p>
-
-            <h2 class="h1 hero-title">CRAFTING YOUR DREAM HOME WITH EXCELLENCE</h2>
-
-           
-
-            
-            <a href="#about" class="btn">Read More</a>
-
+            <h1 class="hero-title">CRAFTING YOUR DREAM HOME WITH EXCELLENCE</h1>
+            <p class="hero-description">
+              With over 2 years of experience, we transform dreams into reality across Kenya. 
+              We specialize in creating luxurious, modern homes and delivering top-tier construction services.
+            </p>
+            <a href="#about" class="btn">Discover More</a>
           </div>
-
-          <figure class="hero-banner">
-            <img src="./assets/images/hero-banner.png" alt="Modern house model" class="w-100">
-          </figure>
-
+          <div class="hero-visual">
+            <img src="assets/images/modern.jpeg" alt="Modern Kenyan House" class="hero-image">
+            <div class="hero-stats">
+              <div class="hero-stats-item">
+                <div class="hero-stats-number">50+</div>
+                <div class="hero-stats-label">Projects</div>
+              </div>
+              <div class="hero-stats-item">
+                <div class="hero-stats-number">100%</div>
+                <div class="hero-stats-label">Satisfied</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
+      <!-- Slide 2: Services -->
+      <div class="hero-slide">
+        <div class="hero-slide-content">
+          <div class="hero-text-content">
+            <p class="hero-subtitle">
+              <i class="fas fa-tools"></i>
+              <span>Our Expert Services</span>
+            </p>
+            <h2 class="hero-title">COMPREHENSIVE CONSTRUCTION SOLUTIONS</h2>
+            <p class="hero-description">
+              From building construction to interior design, civil works to real estate agency - 
+              we provide end-to-end solutions for all your construction and property needs.
+            </p>
+            <a href="#services" class="btn">View Services</a>
+          </div>
+          <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Construction Work in Kenya" class="hero-image">
+            <div class="hero-stats">
+              <div class="hero-stats-item">
+                <div class="hero-stats-number">6</div>
+                <div class="hero-stats-label">Services</div>
+              </div>
+              <div class="hero-stats-item">
+                <div class="hero-stats-number">24/7</div>
+                <div class="hero-stats-label">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Slide 3: Our Projects -->
+      <div class="hero-slide">
+        <div class="hero-slide-content">
+          <div class="hero-text-content">
+            <p class="hero-subtitle">
+              <i class="fas fa-building"></i>
+              <span>Our Projects</span>
+            </p>
+            <h2 class="hero-title">EXCEPTIONAL PROJECTS ACROSS KENYA</h2>
+            <p class="hero-description">
+              We take pride in delivering outstanding construction projects that exceed expectations. 
+              From residential homes to commercial buildings, each project reflects our commitment 
+              to quality, innovation, and client satisfaction.
+            </p>
+            <a href="#projects" class="btn">View Our Projects</a>
+          </div>
+          <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Kenyan Architecture Projects" class="hero-image">
+            <div class="hero-stats">
+              <div class="hero-stats-item">
+                <div class="hero-stats-number">50+</div>
+                <div class="hero-stats-label">Completed</div>
+              </div>
+              <div class="hero-stats-item">
+                <div class="hero-stats-number">15</div>
+                <div class="hero-stats-label">Ongoing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Slide 4: Team -->
+      <div class="hero-slide">
+        <div class="hero-slide-content">
+          <div class="hero-text-content">
+            <p class="hero-subtitle">
+              <i class="fas fa-users"></i>
+              <span>Expert Team</span>
+            </p>
+            <h2 class="hero-title">MEET OUR PROFESSIONAL TEAM</h2>
+            <p class="hero-description">
+              Our dedicated team of directors, architects, and project managers brings years of expertise 
+              to every project. We're committed to delivering excellence in every detail.
+            </p>
+            <a href="#contact-us" class="btn">Contact Team</a>
+          </div>
+          <div class="hero-visual">
+            <img src="assets/images/hero-removebg-preview.png" alt="Professional Construction Team" class="hero-image">
+            <div class="hero-stats">
+              <div class="hero-stats-item">
+                <div class="hero-stats-number">4</div>
+                <div class="hero-stats-label">Directors</div>
+              </div>
+              <div class="hero-stats-item">
+                <div class="hero-stats-number">2+</div>
+                <div class="hero-stats-label">Years Exp</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Navigation Controls - Removed -->
 
+      <!-- Navigation Dots -->
+      <div class="hero-navigation">
+        <span class="hero-dot active" onclick="currentSlide(1)"></span>
+        <span class="hero-dot" onclick="currentSlide(2)"></span>
+        <span class="hero-dot" onclick="currentSlide(3)"></span>
+        <span class="hero-dot" onclick="currentSlide(4)"></span>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="hero-progress">
+        <div class="hero-progress-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const totalSlides = slides.length;
+    const slideInterval = 5000; // 5 seconds
+    let slideTimer;
+    let progressTimer;
+
+    // Initialize slideshow
+    function initSlideshow() {
+      showSlide(currentSlideIndex);
+      startAutoSlide();
+    }
+
+    // Show specific slide
+    function showSlide(index) {
+      // Hide all slides
+      slides.forEach(slide => {
+        slide.classList.remove('active');
+      });
+      
+      // Remove active class from all dots
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+      });
+      
+      // Show current slide
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      
+      // Update progress bar
+      updateProgressBar();
+    }
+
+    // Next slide
+    function nextSlide() {
+      currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+      showSlide(currentSlideIndex);
+    }
+
+    // Previous slide
+    function prevSlide() {
+      currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlideIndex);
+    }
+
+    // Change slide by direction
+    function changeSlide(direction) {
+      clearInterval(slideTimer);
+      clearInterval(progressTimer);
+      
+      if (direction === 1) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+      
+      startAutoSlide();
+    }
+
+    // Go to specific slide
+    function currentSlide(index) {
+      clearInterval(slideTimer);
+      clearInterval(progressTimer);
+      currentSlideIndex = index - 1;
+      showSlide(currentSlideIndex);
+      startAutoSlide();
+    }
+
+    // Start automatic slideshow
+    function startAutoSlide() {
+      slideTimer = setInterval(nextSlide, slideInterval);
+      startProgressBar();
+    }
+
+    // Progress bar animation
+    function startProgressBar() {
+      const progressBar = document.querySelector('.hero-progress-bar');
+      let width = 0;
+      
+      progressTimer = setInterval(() => {
+        width += 100 / (slideInterval / 100);
+        progressBar.style.width = width + '%';
+        
+        if (width >= 100) {
+          width = 0;
+          progressBar.style.width = '0%';
+        }
+      }, 100);
+    }
+
+    // Update progress bar immediately
+    function updateProgressBar() {
+      const progressBar = document.querySelector('.hero-progress-bar');
+      progressBar.style.width = '0%';
+    }
+
+    // Pause slideshow on hover
+    const heroSection = document.querySelector('.hero');
+    heroSection.addEventListener('mouseenter', () => {
+      clearInterval(slideTimer);
+      clearInterval(progressTimer);
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      startAutoSlide();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        changeSlide(-1);
+      } else if (e.key === 'ArrowRight') {
+        changeSlide(1);
+      }
+    });
+
+    // Touch/Swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    heroSection.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    heroSection.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left (next slide)
+          changeSlide(1);
+        } else {
+          // Swipe right (previous slide)
+          changeSlide(-1);
+        }
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initSlideshow);
+
+    // Pause slideshow when tab is not visible
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        clearInterval(slideTimer);
+        clearInterval(progressTimer);
+      } else {
+        startAutoSlide();
+      }
+    });
+  </script>
+</body>
+</html>
       <!-- 
   - #ABOUT
 -->
@@ -273,71 +976,48 @@
 
 
 
-      <!-- 
-        - #SERVICE
-      -->
-        <section class="services" id="services">
-
-      
-      <a href="#services" class="btn">Our Services</a>
-
-
-      <div class="box-container">
-
-         <div class="box">
-            <img src="assets/images/service-1.png" alt="">
-            <h3>building construction</h3>
-            <p>Building construction is a multifaceted process that transforms an idea into a tangible structure.</p>
-         </div>
-
-         <div class="box">
-            <img src="assets/images/service-2.png" alt="">
-            <h3>house renovation</h3>
-            <p>House renovation involves updating, improving, or restoring residential structures to enhance their
-               appearance, functionality, and value.</p>
-         </div>
-
-         <div class="box">
-            <img src="assets/images/service-3.png" alt="">
-            <h3>architechture design</h3>
-            <p>Architecture design involves the process of planning, designing, and constructing buildings and other
-               physical structures.</p>
-         </div>
-
-        
-
-         <div class="box">
-            <img src="assets/images/service-5.png" alt="">
-            <h3>construction consultant</h3>
-            <p>Construction consultants play a crucial role in the building industry by offering expertise in project
-               management, planning, design, and construction oversight.</p>
-         </div>
-
-         <div class="box">
-            <img src="assets/images/service-6.png" alt="">
-            <h3>interior design</h3>
-            <p>Interior designers use various elements such as color, furniture, lighting, and decor to create
-               functional and beautiful spaces.</p>
-         </div>
-
-         <div class="box">
-            <img src="assets/images/service-7.png" alt="">
-            <h3>building maintenance</h3>
-            <p>Building maintenance involves the upkeep, repair, and general care of physical structures, ensuring they
-               remain safe, functional, and aesthetically pleasing.</p>
-         </div>
-
-         <div class="box">
-            <img src="assets/images/service-8.png" alt="">
-            <h3>building renovation</h3>
-            <p>Building renovation involves the process of restoring, improving, or updating existing structures to
-               enhance their functionality, aesthetics, and overall value.</p>
-         </div>
-
-      </div>
-
-   </section>
-
+  <!-- Only the services section is provided here for brevity -->
+<section class="services" id="services">
+  <h1 class="heading">Our Services</h1>
+  <div class="box-container">
+    <div class="box">
+      <img src="assets/images/building.jpg" alt="Building Construction">
+      <h3>Building and Construction</h3>
+      <p>Comprehensive construction services for residential and commercial projects, delivering quality and durability.</p>
+      <a href="building-construction.html" class="btn">Read More</a>
+    </div>
+    <div class="box">
+      <img src="assets/images/interior design.jpg" alt="Interior and Architecture Design">
+      <h3>Interior and Architecture Design</h3>
+      <p>Creative designs blending aesthetics and functionality for modern living spaces.</p>
+      <a href="interior-design.html" class="btn">Read More</a>
+    </div>
+    <div class="box">
+      <img src="assets/images/consult.jpg" alt="Construction Consultancy">
+      <h3>Construction Consultancy</h3>
+      <p>Expert guidance for seamless project planning and execution.</p>
+      <a href="construction-consultancy.html" class="btn">Read More</a>
+    </div>
+    <div class="box">
+      <img src="assets/images/civil works.jpg" alt="Civil Works">
+      <h3>Civil Works</h3>
+      <p>Infrastructure solutions including roads, bridges, and utilities with precision.</p>
+      <a href="civil-works.html" class="btn">Read More</a>
+    </div>
+    <div class="box">
+      <img src="assets/images/realestate.jpg" alt="Real Estate Agency">
+      <h3>Real Estate Agency</h3>
+      <p>Connecting clients with premium properties for sale and rent in Kenya.</p>
+      <a href="services/real-estate-agency.html" class="btn">Read More</a>
+    </div>
+    <div class="box">
+      <img src="assets/images/renovations.jpg" alt="Building Renovations">
+      <h3>Building Renovations</h3>
+      <p>Revitalizing existing structures with modern upgrades and sustainable practices.</p>
+      <a href="services/building-renovations.html" class="btn">Read More</a>
+    </div>
+  </div>
+</section>
    <!-- services section ends -->
 
      
@@ -348,116 +1028,678 @@
 <!-- projects section starts -->
 <section class="projects" id="projects">
   <h1 class="heading">Our Projects</h1>
-  <div class="project-description">
-    <p>Located in Katani, Spring Road Estate. The masterpiece is a 3-bedroom bungalow sitting on a 50x100 plot size. Well-developed and serene area with all amenities readily available. The bungalow consists of:</p>
-    <ul>
-      <li>Lounge: 27 meters square</li>
-      <li>Dining: 13.4 meters square</li>
-      <li>Kitchen: 14 meters square with a pantry area</li>
-      <li>All bedrooms are ensuite</li>
-      <li>Master bedroom with walk-in wardrobes</li>
-      <li>Detached SQ: ensuite</li>
-      <li>Total occupancy area: 168 meters square</li>
-      <li><strong style="color: var(--yellow); font-size: 1.8rem;">Total Price: 14,000,000 KES</strong></li>
-    </ul>
+  <div class="featured-badge">
+    <i class="fas fa-star"></i> Featured Project
   </div>
   
-  <div class="box-container">
-    <a href="./assets/images/pic1.jpg" class="box">
-      <div class="image">
-        <img src="./assets/images/pic1.jpg" alt="Luxurious Living Room">
-        <div class="overlay"></div>
+  <div class="project-container">
+    <div class="project-header">
+      <h2 class="project-title">Katani Springs Estate</h2>
+      <div class="project-location">
+        <i class="fas fa-map-marker-alt"></i>
+        Spring Road Estate, Katani - Machakos County
       </div>
-      <div class="content">
-        <div class="info">
-          <h3>Classical Exterior</h3>
-          <p>Traditional bungalow with modern design</p>
-        </div>
-        <i class="fas fa-plus"></i>
+      
+      <div class="price-banner">
+        <h3>Special Launch Price</h3>
+        <!--<div class="price">KES 14,000,000</div>-->
+        <div class="price-note">Flexible payment plans available</div>
       </div>
-    </a>
-    <a href="./assets/images/pic2.jpg" class="box">
-      <div class="image">
-        <img src="./assets/images/pic2.jpg" alt="Modern Bathroom">
-        <div class="overlay"></div>
-      </div>
-      <div class="content">
-        <div class="info">
-          <h3>Modern Exterior</h3>
-          <p>Sleek & Stylish Design</p>
-        </div>
-        <i class="fas fa-plus"></i>
-      </div>
-    </a>
-    <a href="./assets/images/pic3.jpg" class="box">
-      <div class="image">
-        <img src="./assets/images/pic3.jpg" alt="Contemporary Bedroom">
-        <div class="overlay"></div>
-      </div>
-      <div class="content">
-        <div class="info">
-          <h3>New Exterior Design</h3>
-          <p>Modern Bungalow with sleek architechture</p>
-        </div>
-        <i class="fas fa-plus"></i>
-      </div>
-    </a>
-    <a href="./assets/images/pic4.jpg" class="box">
-      <div class="image">
-        <img src="./assets/images/pic4.jpg" alt="Modern Exterior">
-        <div class="overlay"></div>
-      </div>
-      <div class="content">
-        <div class="info">
-          <h3>Elegant Exterior Modern Exterior</h3>
-          <p>Minimalist design with large windows</p>
-        </div>
-        <i class="fas fa-plus"></i>
-      </div>
-    </a>
-    <a href="./assets/images/pic7.jpg" class="box">
-  <div class="image">
-    <img src="./assets/images/pic7.jpg" alt="New Exterior Design">
-    <div class="overlay"></div>
-  </div>
-  <div class="content">
-    <div class="info">
-      <h3>Contemporary Bedroom Design</h3>
-      <p>Minimalist and spacious design </p>
     </div>
-    <i class="fas fa-plus"></i>
-  </div>
-</a>
-    <a href="./assets/images/pic9.jpg" class="box">
-      <div class="image">
-        <img src="./assets/images/pic9.jpg" alt="Chic Living Area">
-        <div class="overlay"></div>
-      </div>
-      <div class="content">
-        <div class="info"> 
-          <h3>Luxurious Living Room Design</h3>
-          <p>Modern and Elegant design </p>
+
+    <div class="project-content">
+      <div class="project-overview">
+        <div class="project-description">
+          <h3>Project Overview</h3>
+          <p>A magnificent 3-bedroom bungalow masterpiece situated on a generous 50x100 plot in the prestigious Spring Road Estate, Katani. This exceptional property combines modern architectural design with practical living spaces, perfect for discerning families.</p>
+          <p>Located in a well-developed and serene environment, the estate offers excellent connectivity to Nairobi, reliable infrastructure, and all essential amenities within reach.</p>
         </div>
-        <i class="fas fa-plus"></i>
-      </div>
-    </a>
-    <a href="./assets/images/pic10.jpg" class="box">
-      <div class="image">
-        <img src="./assets/images/pic10.jpg" alt="Classic Exterior">
-        <div class="overlay"></div>
-      </div>
-      <div class="content">
-        <div class="info">
-          <h3>Modern Bathroom design</h3>
-          <p>Sleek Tiles and spacious</p>
+
+        <div class="key-highlights">
+          <h4>Key Highlights</h4>
+          <ul>
+            <li>30 minutes to Nairobi CBD</li>
+            <li>Near SGR Syokimau Station</li>
+            <li>Fully serviced plot</li>
+            <li>Secure gated community</li>
+            <li>Ready for immediate occupation</li>
+            <li>Title deed ready</li>
+          </ul>
         </div>
-        <i class="fas fa-plus"></i>
       </div>
-    </a>
+
+      <div class="features-section">
+        <h3>Property Features</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-home"></i>
+            <h4>Living Spaces</h4>
+            <ul>
+              <li>Spacious Lounge: 27m²</li>
+              <li>Elegant Dining: 13.4m²</li>
+              <li>Modern Kitchen: 14m²</li>
+              <li>Pantry Area</li>
+              <li>Open-plan design</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <i class="fas fa-bed"></i>
+            <h4>Bedrooms & Bathrooms</h4>
+            <ul>
+              <li>3 Ensuite Bedrooms</li>
+              <li>Master with Walk-in Wardrobe</li>
+              <li>Detached Ensuite SQ</li>
+              <li>Modern bathroom fittings</li>
+              <li>Ample storage space</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <i class="fas fa-ruler-combined"></i>
+            <h4>Property Specifications</h4>
+            <ul>
+              <li>Plot Size: 50x100 feet</li>
+              <li>Total Floor Area: 168m²</li>
+              <li>Bungalow design</li>
+              <li>Quality finishes</li>
+              <li>Parking space</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h4>Location Advantages</h4>
+            <ul>
+              <li>Good road network</li>
+              <li>Shopping centers nearby</li>
+              <li>Quality schools</li>
+              <li>Healthcare facilities</li>
+              <li>Water & electricity</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual-section">
+        <h3>Project Visualizations</h3>
+        <div class="visual-grid">
+          <div class="visual-card">
+            <div class="visual-placeholder">
+              <div class="visual-placeholder-content">
+                <i class="fas fa-home"></i>
+                <p>3D Exterior Rendering<br>Coming Soon</p>
+              </div>
+            </div>
+            <div class="visual-card-content">
+              <h4>Exterior Design</h4>
+              <p>Modern bungalow with elegant architectural details and landscaping</p>
+            </div>
+          </div>
+
+          <div class="visual-card">
+            <div class="visual-placeholder">
+              <div class="visual-placeholder-content">
+                <i class="fas fa-couch"></i>
+                <p>Interior Layout<br>Floor Plans Available</p>
+              </div>
+            </div>
+            <div class="visual-card-content">
+              <h4>Interior Spaces</h4>
+              <p>Spacious open-plan living with modern kitchen and comfortable bedrooms</p>
+            </div>
+          </div>
+
+          <div class="visual-card">
+            <div class="visual-placeholder">
+              <div class="visual-placeholder-content">
+                <i class="fas fa-map"></i>
+                <p>Site Plan<br>Master Plan Ready</p>
+              </div>
+            </div>
+            <div class="visual-card-content">
+              <h4>Estate Layout</h4>
+              <p>Well-planned development with green spaces and infrastructure</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h3>Ready to Make This Your Home?</h3>
+        <p class="cta-subtitle">Don't miss out on this exceptional opportunity. Contact our team today for more information.</p>
+        
+        <div class="cta-buttons">
+          <a href="tel:+254700123456" class="btn btn-primary">
+            <i class="fas fa-phone"></i> Schedule Site Visit
+          </a>
+          <a href="mailto:info@katanisprings.co.ke?subject=Payment%20Plan%20Inquiry&body=Hello,%20I%20would%20like%20to%20inquire%20about%20the%20payment%20plan%20for%20Katani%20Springs%20Estate." class="btn btn-secondary">
+            <i class="fas fa-calculator"></i> Get Payment Plan
+          </a>
+          <a href="data:text/plain;charset=utf-8,KATANI SPRINGS ESTATE BROCHURE%0A%0AProperty: 3-Bedroom Bungalow%0ALocation: Spring Road Estate, Katani%0APrice: KES 14,000,000%0APlot Size: 50x100 feet%0AFloor Area: 168m²%0A%0AFeatures:%0A- Spacious Lounge: 27m²%0A- Elegant Dining: 13.4m²%0A- Modern Kitchen: 14m²%0A- 3 Ensuite Bedrooms%0A- Master with Walk-in Wardrobe%0A- Detached Ensuite SQ%0A%0ALocation Benefits:%0A- 30 minutes to Nairobi CBD%0A- Near SGR Syokimau Station%0A- Fully serviced plot%0A- Secure gated community%0A%0AContact: +254 700 123 456%0AEmail: info@katanisprings.co.ke" download="Katani_Springs_Estate_Brochure.txt" class="btn btn-outline">
+            <i class="fas fa-download"></i> Download Brochure
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <h4>Contact Our Sales Team</h4>
+          <div class="contact-grid">
+            <a href="tel:+254700123456" class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+254 700 123 456</span>
+            </a>
+            <a href="https://wa.me/254700123456?text=Hello,%20I%20am%20interested%20in%20Katani%20Springs%20Estate" class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <span>+254 700 123 456</span>
+            </a>
+            <a href="mailto:info@katanisprings.co.ke?subject=Katani%20Springs%20Estate%20Inquiry" class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>info@katanisprings.co.ke</span>
+            </a>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <span>Mon-Sat: 8AM-6PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-<!-- projects section ends -->
-<a href="#contact-us" class="btn">Reach out to our team for enquiries</a>
+
+<style>
+/* Featured Project Styles - Add to your existing CSS */
+.projects .featured-badge {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 100%;
+}
+
+.projects .project-container {
+  background: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 3rem;
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects .project-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-bottom: 3px solid var(--yellow);
+}
+
+.projects .project-title {
+  font-size: 2.8rem;
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.projects .project-location {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  margin-bottom: 2rem;
+}
+
+.projects .project-location i {
+  color: var(--yellow);
+  margin-right: 0.5rem;
+}
+
+.projects .price-banner {
+  background: var(--yellow);
+  color: var(--white);
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  text-align: center;
+  max-width: 40rem;
+}
+
+.projects .price-banner h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.projects .price-banner .price {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.projects .price-banner .price-note {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.projects .project-content {
+  padding: 3rem 2rem;
+  background: var(--white);
+}
+
+.projects .project-overview {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.projects .project-description h3 {
+  font-size: 2.2rem;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.projects .project-description p {
+  font-size: 1.6rem;
+  color: var(--light-color);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.projects .key-highlights {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 1rem;
+  border-left: 5px solid var(--yellow);
+}
+
+.projects .key-highlights h4 {
+  font-size: 1.8rem;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.projects .key-highlights ul {
+  list-style: none;
+}
+
+.projects .key-highlights ul li {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.projects .key-highlights ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+.projects .features-section {
+  margin-bottom: 3rem;
+}
+
+.projects .features-section h3 {
+  font-size: 2.2rem;
+  color: var(--black);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.projects .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}
+
+.projects .feature-card {
+  background: var(--white);
+  border: 1px solid #eee;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects .feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--yellow);
+}
+
+.projects .feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.projects .feature-card i {
+  font-size: 3rem;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+
+.projects .feature-card h4 {
+  font-size: 1.8rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.projects .feature-card ul {
+  list-style: none;
+  text-align: left;
+}
+
+.projects .feature-card ul li {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.projects .feature-card ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+.projects .feature-card ul li:last-child {
+  border-bottom: none;
+}
+
+.projects .visual-section {
+  margin-bottom: 3rem;
+}
+
+.projects .visual-section h3 {
+  font-size: 2.2rem;
+  color: var(--black);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.projects .visual-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 2rem;
+}
+
+.projects .visual-card {
+  background: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.projects .visual-card:hover {
+  transform: translateY(-5px);
+}
+
+.projects .visual-placeholder {
+  height: 18rem;
+  background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.projects .visual-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4rem;
+  height: 4rem;
+  border: 2px solid var(--yellow);
+  border-radius: 50%;
+  border-top: 2px solid transparent;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.projects .visual-placeholder-content {
+  z-index: 1;
+  position: relative;
+}
+
+.projects .visual-placeholder i {
+  font-size: 3rem;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+
+.projects .visual-placeholder p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.projects .visual-card-content {
+  padding: 1.5rem;
+}
+
+.projects .visual-card h4 {
+  font-size: 1.6rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.projects .visual-card p {
+  color: var(--light-color);
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.projects .cta-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.projects .cta-section h3 {
+  font-size: 2.2rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.projects .cta-section .cta-subtitle {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  margin-bottom: 2rem;
+}
+
+.projects .cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.projects .btn {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-transform: capitalize;
+}
+
+.projects .btn-primary {
+  background: var(--yellow);
+  color: var(--white);
+}
+
+.projects .btn-primary:hover {
+  background: #e67e22;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.projects .btn-secondary {
+  background: var(--black);
+  color: var(--white);
+}
+
+.projects .btn-secondary:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.projects .btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.projects .btn-outline:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.projects .contact-info {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.projects .contact-info h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--yellow);
+  text-align: center;
+}
+
+.projects .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 1.5rem;
+}
+
+.projects .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.projects .contact-item:hover {
+  color: var(--yellow);
+}
+
+.projects .contact-item i {
+  color: var(--yellow);
+  width: 2rem;
+  text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .projects .project-overview {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .projects .project-content {
+    padding: 2rem 1rem;
+  }
+
+  .projects .project-header {
+    padding: 2rem 1rem;
+  }
+
+  .projects .price-banner .price {
+    font-size: 2.5rem;
+  }
+
+  .projects .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects .visual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projects .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 450px) {
+  .projects .project-title {
+    font-size: 2rem;
+  }
+
+  .projects .btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  .projects .cta-section {
+    padding: 2rem 1rem;
+  }
+
+  .projects .contact-info {
+    padding: 1.5rem;
+  }
+}
+</style>
+
+<a href="tel:+254700123456" class="btn">Reach out to our team for enquiries</a>
 <!-- projects section ends -->
 
 
