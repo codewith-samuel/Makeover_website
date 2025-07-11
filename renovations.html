@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interior & Architecture Design - Transform Your Space with Expert Design</title>
+    <title>Renovations - Revitalize Your Space with Expert Craftsmanship</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2C3E50;
-            --accent: #E74C3C;
-            --gold: #F39C12;
+            --primary: #000000;
+            --accent: #FF6200;
             --white: #FFFFFF;
-            --light-gray: #ECF0F1;
-            --dark-gray: #34495E;
-            --text-light: #7F8C8D;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --light-gray: #F5F5F5;
+            --dark-gray: #1A1A1A;
+            --text-light: #666666;
+            --gradient-1: linear-gradient(135deg, #FF6200 0%, #FF8C00 100%);
+            --gradient-2: linear-gradient(135deg, #FFA500 0%, #FF4500 100%);
+            --gradient-3: linear-gradient(135deg, #FF7F50 0%, #FF6347 100%);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
@@ -43,8 +42,8 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(231, 76, 60, 0.8)),
-                        url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(255, 98, 0, 0.8)),
+                        url('https://images.unsplash.com/photo-1508729297911-93c8a3e2c506?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
             display: flex;
             align-items: center;
             position: relative;
@@ -78,7 +77,7 @@
             font-size: 4rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #fff, #f39c12);
+            background: linear-gradient(45deg, #fff, #FF6200);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -136,12 +135,12 @@
         .btn-primary {
             background: var(--gradient-1);
             color: var(--white);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 98, 0, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 35px rgba(255, 98, 0, 0.4);
         }
 
         .btn-secondary {
@@ -156,7 +155,7 @@
             transform: translateY(-3px);
         }
 
-        /* Services Grid */
+        /* Services Section */
         .services-section {
             padding: 6rem 0;
             background: var(--light-gray);
@@ -194,7 +193,7 @@
         }
 
         .services-grid {
-            display: grid;
+            display: home-grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2.5rem;
             margin-bottom: 3rem;
@@ -272,7 +271,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Portfolio Gallery */
+        /* Portfolio Section */
         .portfolio-section {
             padding: 6rem 0;
             background: var(--primary);
@@ -315,7 +314,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(44, 62, 80, 0.9), rgba(231, 76, 60, 0.8));
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(255, 98, 0, 0.8));
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -389,7 +388,7 @@
         }
 
         .process-step:nth-child(4) .process-number {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            background: linear-gradient(135deg, #FF8C00 0%, #FF4500 100%);
         }
 
         .process-step::after {
@@ -595,14 +594,14 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Interior & Architecture Design</h1>
-                <p class="hero-subtitle">Transform your space into a masterpiece with our award-winning design expertise. Creating beautiful, functional spaces that inspire and delight.</p>
+                <h1 class="hero-title">Renovations</h1>
+                <p class="hero-subtitle">Revitalize your space with our expert renovation services. From minor upgrades to complete transformations, we deliver quality craftsmanship.</p>
                 <div class="hero-cta">
                     <a href="tel:+254703358650" class="btn btn-primary">
                         <i class="fas fa-phone"></i> Get Free Consultation
                     </a>
                     <a href="#portfolio" class="btn btn-secondary">
-                        <i class="fas fa-eye"></i> View Portfolio
+                        <i class="fas fa-eye"></i> View Projects
                     </a>
                 </div>
             </div>
@@ -612,49 +611,49 @@
     <!-- Services Section -->
     <section class="services-section" id="services">
         <div class="container">
-            <h2 class="section-title">Our Design Services</h2>
-            <p class="section-subtitle">Comprehensive interior and architectural design solutions that blend creativity with functionality</p>
+            <h2 class="section-title">Our Renovation Services</h2>
+            <p class="section-subtitle">Comprehensive renovation solutions to enhance the functionality and beauty of your space</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-paint-roller"></i>
                     </div>
-                    <h3>Interior Design</h3>
-                    <p>Transform your interiors with our creative design solutions. From concept to completion, we create spaces that reflect your personality and enhance your lifestyle.</p>
+                    <h3>Interior Renovations</h3>
+                    <p>Transform your interiors with modern updates, from painting and flooring to complete room makeovers.</p>
                     <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
-                        <li>• Residential interior design</li>
-                        <li>• Commercial space design</li>
-                        <li>• Furniture selection & layout</li>
-                        <li>• Color schemes & lighting</li>
+                        <li>• Wall painting & finishes</li>
+                        <li>• Flooring installation</li>
+                        <li>• Lighting upgrades</li>
+                        <li>• Custom cabinetry</li>
                     </ul>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-drafting-compass"></i>
+                        <i class="fas fa-hammer"></i>
                     </div>
-                    <h3>Architectural Design</h3>
-                    <p>Innovative architectural solutions that combine aesthetics with functionality. Our designs respond to your needs while creating stunning visual impact.</p>
+                    <h3>Exterior Renovations</h3>
+                    <p>Enhance your property’s curb appeal with exterior upgrades, including siding, roofing, and landscaping.</p>
                     <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
-                        <li>• Architectural planning</li>
-                        <li>• 3D visualization</li>
-                        <li>• Building design</li>
-                        <li>• Structural planning</li>
+                        <li>• Roof repairs & replacement</li>
+                        <li>• Exterior painting</li>
+                        <li>• Siding installation</li>
+                        <li>• Outdoor living spaces</li>
                     </ul>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-palette"></i>
+                        <i class="fas fa-tools"></i>
                     </div>
-                    <h3>Design Consultation</h3>
-                    <p>Expert design advice and guidance to help you make informed decisions. Our consultants bring years of experience to every project.</p>
+                    <h3>Renovation Consultation</h3>
+                    <p>Expert advice to plan and execute your renovation project, ensuring quality results within budget.</p>
                     <ul style="text-align: left; margin-top: 1rem; color: var(--text-light);">
-                        <li>• Space planning</li>
+                        <li>• Project planning</li>
                         <li>• Material selection</li>
-                        <li>• Budget optimization</li>
-                        <li>• Design coordination</li>
+                        <li>• Budget management</li>
+                        <li>• Contractor coordination</li>
                     </ul>
                 </div>
             </div>
@@ -664,55 +663,55 @@
     <!-- Portfolio Section -->
     <section class="portfolio-section" id="portfolio">
         <div class="container">
-            <h2 class="section-title">Our Design Portfolio</h2>
-            <p class="section-subtitle">Discover our latest projects showcasing innovative design solutions across various spaces</p>
+            <h2 class="section-title">Our Renovation Portfolio</h2>
+            <p class="section-subtitle">Explore our completed projects showcasing expert craftsmanship and stunning transformations</p>
             
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern living room design">
+                    <img src="assets/images/renovation1.jpeg" alt="Kitchen renovation">
                     <div class="portfolio-overlay">
-                        <h4>Modern Living Space</h4>
-                        <p>Contemporary design with clean lines and sophisticated finishes</p>
+                        <h4>floor renovation</h4>
+                        <p></p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury bedroom design">
+                    <img src="assets/images/renovation2.jpeg" alt="Bathroom renovation">
                     <div class="portfolio-overlay">
-                        <h4>Luxury Bedroom</h4>
-                        <p>Elegant master bedroom with premium materials and lighting</p>
+                        <h4></h4>
+                        <p></p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern kitchen design">
+                    <img src="assets/images/renovation3.jpeg" alt="Living room renovation">
                     <div class="portfolio-overlay">
-                        <h4>Designer Kitchen</h4>
-                        <p>Functional kitchen with stunning aesthetics and smart storage</p>
+                        <h4>Spa-Inspired Bathroom</h4>
+                        <p>Luxurious bathroom remodel with premium fixtures</p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office space design">
+                    <img src="assets/images/renovation4.jpeg" alt="Exterior renovation">
                     <div class="portfolio-overlay">
-                        <h4>Commercial Office</h4>
-                        <p>Professional workspace designed for productivity and comfort</p>
+                        <h4>Exterior Facelift</h4>
+                        <p>Refreshed new exterior </p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurant interior">
+                    <img src="assets/images/renovation5.jpeg" alt="Office renovation">
                     <div class="portfolio-overlay">
-                        <h4>Restaurant Interior</h4>
-                        <p>Atmospheric dining space with perfect ambiance</p>
+                        <h4>Renovated kitchen space</h4>
+                        <p> </p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern bathroom">
+                    <img src="assets/images/renovations.jpg" alt="Outdoor renovation">
                     <div class="portfolio-overlay">
-                        <h4>Spa Bathroom</h4>
-                        <p>Luxurious bathroom design with spa-like features</p>
+                        <h4>Outdoor Patio</h4>
+                        <p>Transformed backyard with new patio and deck</p>
                     </div>
                 </div>
             </div>
@@ -722,32 +721,32 @@
     <!-- Process Section -->
     <section class="process-section">
         <div class="container">
-            <h2 class="section-title">Our Design Process</h2>
-            <p class="section-subtitle">A systematic approach to creating exceptional spaces that exceed expectations</p>
+            <h2 class="section-title">Our Renovation Process</h2>
+            <p class="section-subtitle">A systematic approach to delivering high-quality renovations that exceed expectations</p>
             
             <div class="process-grid">
                 <div class="process-step">
                     <div class="process-number">1</div>
-                    <h4>Discovery & Consultation</h4>
-                    <p>We begin by understanding your vision, lifestyle, and requirements through detailed consultation sessions.</p>
+                    <h4>Consultation & Planning</h4>
+                    <p>We discuss your renovation goals, assess your space, and create a tailored plan to meet your needs.</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="process-number">2</div>
-                    <h4>Concept Development</h4>
-                    <p>Our team creates initial design concepts, mood boards, and 3D visualizations to bring your ideas to life.</p>
+                    <h4>Design & Budgeting</h4>
+                    <p>Our team develops detailed designs and cost estimates, ensuring alignment with your vision and budget.</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="process-number">3</div>
-                    <h4>Design Refinement</h4>
-                    <p>We refine the designs based on your feedback, ensuring every detail aligns with your vision and budget.</p>
+                    <h4>Construction & Execution</h4>
+                    <p>Skilled craftsmen execute the renovation with precision, adhering to timelines and quality standards.</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="process-number">4</div>
-                    <h4>Implementation</h4>
-                    <p>Our project management team coordinates with contractors and suppliers to bring your design to reality.</p>
+                    <h4>Final Inspection & Handover</h4>
+                    <p>We conduct a thorough inspection to ensure perfection before handing over your revitalized space.</p>
                 </div>
             </div>
         </div>
@@ -757,16 +756,16 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Transform Your Space?</h2>
-                <p>Let our expert designers create the perfect space for you. Get a free consultation and bring your vision to life.</p>
+                <h2>Ready to Revitalize Your Space?</h2>
+                <p>Let our expert team transform your property with top-quality renovations. Get a free consultation today.</p>
                 <div class="cta-buttons">
                     <a href="tel:+254703358650" class="btn btn-white">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
-                    <a href="https://wa.me/254703358650?text=Hello,%20I%20need%20interior%20and%20architecture%20design%20services" class="btn btn-secondary">
+                    <a href="https://wa.me/254703358650?text=Hello,%20I%20need%20renovation%20services" class="btn btn-secondary">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="mailto:realestateandbuildingcompany@gmail.com?subject=Design%20Consultation%20Request" class="btn btn-white">
+                    <a href="mailto:realestateandbuildingcompany@gmail.com?subject=Renovation%20Consultation" class="btn btn-white">
                         <i class="fas fa-envelope"></i> Email Us
                     </a>
                 </div>
@@ -778,13 +777,13 @@
     <div class="contact-bar">
         <div class="container">
             <a href="tel:+254703358650" class="contact-item">
-                <i class="fas fa-phone"></i> +254 703 358 650
+                <i class="fas fa-phone"></i> +254703358650
             </a>
             <a href="https://wa.me/254703358650" class="contact-item">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
             <a href="mailto:realestateandbuildingcompany@gmail.com" class="contact-item">
-                <i class="fas fa-envelope"></i> Design Consultation
+                <i class="fas fa-envelope"></i> Renovation Consultation
             </a>
         </div>
     </div>

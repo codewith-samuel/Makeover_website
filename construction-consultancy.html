@@ -1,960 +1,809 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Construction Consultancy - Makeover Real Estate & Building Contractors Limited</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #f4f7fa;
-      color: #1a1a1a;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(26, 26, 26, 0.9);
-      padding: 1rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      transition: background 0.3s ease;
-    }
-    .header.scrolled {
-      background: #1a1a1a;
-    }
-    .logo {
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .nav-toggle {
-      display: none;
-    }
-    .nav-menu {
-      display: flex;
-      list-style: none;
-    }
-    .nav-menu li {
-      margin-left: 2rem;
-    }
-    .nav-menu a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-    .nav-menu a:hover {
-      color: #d4a017;
-    }
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-    .social-links a {
-      color: #fff;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-    .social-links a:hover {
-      color: #d4a017;
-    }
-    .call-button {
-      margin-left: 1rem;
-      padding: 0.5rem 1.5rem;
-      background: #d4a017;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .call-button:hover {
-      transform: scale(1.1);
-      background: #a87b0f;
-    }
-    .hero {
-      height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      overflow: hidden;
-      background-color: #4a4a4a;
-      padding-top: 80px; /* Added to prevent content overlap with navbar */
-    }
-    .hero-slideshow {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-    .hero-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: 100% auto; /* Scale width to 100%, preserve aspect ratio */
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
-      image-rendering: -webkit-optimize-contrast; /* Enhance sharpness */
-      image-rendering: crisp-edges; /* Fallback for non-Webkit browsers */
-    }
-    .hero-slide.active {
-      opacity: 1;
-    }
-    .hero-slide::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(212,160,23,0.1));
-      z-index: 2;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      max-width: 800px;
-      padding: 0 2rem;
-    }
-    .hero-content h1 {
-      font-size: 4.5rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-      animation: fadeInDown 1.5s ease-out;
-    }
-    .hero-content .subtitle {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-      animation: fadeInUp 1.5s ease-out 0.5s;
-      animation-fill-mode: both;
-    }
-    .hero-features {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-      animation: fadeInUp 1.5s ease-out 1s;
-      animation-fill-mode: both;
-    }
-    .hero-feature {
-      text-align: center;
-      padding: 1rem;
-      background: rgba(255,255,255,0.1);
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .hero-feature:hover {
-      transform: translateY(-5px);
-      background: rgba(212,160,23,0.2);
-    }
-    .hero-feature i {
-      font-size: 2.5rem;
-      color: #d4a017;
-      margin-bottom: 0.5rem;
-    }
-    .hero-feature h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero-feature p {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-    .slide-indicators {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 4;
-    }
-    .indicator {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .indicator.active {
-      background: #d4a017;
-      transform: scale(1.2);
-    }
-    .slide-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.2);
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      padding: 15px 20px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      z-index: 4;
-      border-radius: 50%;
-    }
-    .slide-nav:hover {
-      background: rgba(212,160,23,0.7);
-    }
-    .slide-nav.prev {
-      left: 30px;
-    }
-    .slide-nav.next {
-      right: 30px;
-    }
-    @keyframes fadeInDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .cta-button {
-      margin-top: 2rem;
-      padding: 1rem 2.5rem;
-      background: #d4a017;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s ease;
-      box-shadow: 0 5px 15px rgba(212,160,23,0.4);
-    }
-    .cta-button:hover {
-      transform: scale(1.1);
-      background: #a87b0f;
-      box-shadow: 0 8px 25px rgba(212,160,23,0.6);
-    }
-    .content-section {
-      padding: 8rem 5% 6rem;
-      text-align: center;
-      background: #fff;
-    }
-    .content-section h2 {
-      font-size: 3rem;
-      color: #1a1a1a;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-    .content-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 4px;
-      background: #d4a017;
-      animation: grow 1.5s ease-out;
-    }
-    @keyframes grow {
-      from { width: 0; }
-      to { width: 50px; }
-    }
-    .content-section p {
-      font-size: 1.3rem;
-      color: #555;
-      max-width: 900px;
-      margin: 0 auto 3rem;
-    }
-    .value-proposition {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-    .value-item {
-      background: linear-gradient(135deg, #d4a017, #f4d03f);
-      color: white;
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .value-item:hover {
-      transform: translateY(-10px);
-    }
-    .value-item h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .service-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #e74c3c;
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .service-features {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0;
-    }
-    .service-features li {
-      padding: 0.3rem 0;
-      color: #27ae60;
-      font-weight: 500;
-    }
-    .service-cta {
-      background: #27ae60;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .service-cta:hover {
-      background: #219a52;
-      transform: scale(1.05);
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
-    .service-card {
-      background: #f4f7fa;
-      padding: 2rem;
-      border-radius: 15px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: slideUp 1s ease-out;
-      position: relative;
-      overflow: hidden;
-    }
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    .service-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      transition: transform 0.5s ease;
-    }
-    .service-card:hover img {
-      transform: scale(1.05);
-    }
-    .service-card h3 {
-      font-size: 1.5rem;
-      color: #1a1a1a;
-      margin-bottom: 1rem;
-    }
-    .service-card p {
-      font-size: 1.1rem;
-      color: #777;
-    }
-    .testimonials-section {
-      background: #f8f9fa;
-      padding: 4rem 2rem;
-      margin: 4rem 0;
-      border-radius: 20px;
-    }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .testimonial {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      position: relative;
-    }
-    .testimonial::before {
-      content: '"';
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      font-size: 4rem;
-      color: #d4a017;
-      font-family: serif;
-    }
-    .stars {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    .client-info {
-      margin-top: 1rem;
-      color: #666;
-    }
-    .urgency-section {
-      background: linear-gradient(135deg, #e74c3c, #c0392b);
-      color: white;
-      padding: 4rem 2rem;
-      margin: 4rem 0;
-      border-radius: 20px;
-      text-align: center;
-    }
-    .offer-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      align-items: center;
-    }
-    .offer-features p {
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
-    }
-    .big-cta-button {
-      background: #27ae60;
-      color: white;
-      border: none;
-      padding: 1.5rem 3rem;
-      border-radius: 50px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
-    }
-    .big-cta-button:hover {
-      background: #219a52;
-      transform: scale(1.05);
-    }
-    .urgency-text {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #f39c12;
-      font-weight: bold;
-    }
-    .contact-highlight {
-      background: #d4a017;
-      color: white;
-      padding: 2rem;
-      border-radius: 15px;
-      margin-bottom: 1rem;
-    }
-    .contact-highlight h4 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    .emergency {
-      background: #e74c3c !important;
-      animation: glow 2s infinite alternate;
-    }
-    @keyframes glow {
-      from { box-shadow: 0 0 10px #e74c3c; }
-      to { box-shadow: 0 0 20px #e74c3c, 0 0 30px #e74c3c; }
-    }
-    .final-cta {
-      background: #f39c12;
-      color: white;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 2rem;
-      font-size: 1.2rem;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      padding: 0 2rem;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.1);
-    }
-    .gallery-item .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .gallery-item:hover .overlay {
-      opacity: 1;
-    }
-    .gallery-item .overlay span {
-      font-size: 1.5rem;
-      text-transform: uppercase;
-    }
-    .contact-info {
-      margin-top: 4rem;
-      text-align: center;
-      padding: 2rem 0;
-      background: #f4f7fa;
-      border-radius: 15px;
-    }
-    .contact-info h3 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #1a1a1a;
-    }
-    .contact-details {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .contact-details div {
-      text-align: center;
-    }
-    .contact-details a {
-      color: #d4a017;
-      text-decoration: none;
-      font-size: 1.2rem;
-      display: block;
-      margin: 0.5rem 0;
-    }
-    .contact-details a:hover {
-      text-decoration: underline;
-    }
-    .social-links.contact {
-      gap: 1rem;
-    }
-    .call-button.contact {
-      margin: 0;
-      padding: 0.5rem 1.5rem;
-    }
-    .footer {
-      background: #1a1a1a;
-      color: #fff;
-      text-align: center;
-      padding: 3rem 5%;
-      margin-top: 4rem;
-    }
-    .footer p {
-      font-size: 1rem;
-    }
-    @media (max-width: 768px) {
-      .hero { padding-top: 120px; } /* Increased padding for mobile */
-      .hero-content h1 { font-size: 2.5rem; }
-      .hero-content .subtitle { font-size: 1.2rem; }
-      .hero-features { gap: 1rem; }
-      .hero-feature { min-width: 150px; }
-      .content-section h2 { font-size: 2rem; }
-      .content-section p { font-size: 1.1rem; }
-      .gallery-item img { height: 200px; }
-      .slide-nav { display: none; }
-      .offer-container { grid-template-columns: 1fr; gap: 2rem; }
-      .value-proposition { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #1a1a1a;
-      }
-      .nav-toggle {
-        display: block;
-        font-size: 1.5rem;
-        color: #fff;
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-      .nav-menu.active {
-        display: flex;
-      }
-      .nav-menu li {
-        margin: 1rem 0;
-      }
-      .header {
-        flex-direction: column;
-        padding: 0.5rem 5%;
-      }
-      .social-links, .call-button {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 0.5rem;
-      }
-      .social-links { gap: 0.5rem; }
-      .call-button { margin-left: 0; width: auto; }
-      .contact-info h3 { font-size: 1.5rem; }
-      .contact-details { flex-direction: column; gap: 1rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Consultancy Services - Expert Advisory & Project Management in Kenya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --orange: #FF6B35;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --dark-gray: #2D2D2D;
+            --light-gray: #666666;
+            --orange-light: rgba(255, 107, 53, 0.1);
+            --orange-dark: #E55A2B;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --box-shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --border-radius: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.85), rgba(255, 107, 53, 0.85)), 
+                        url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .btn-dark {
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+        }
+
+        .btn-dark:hover {
+            background: var(--dark-gray);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Services Overview */
+        .services-overview {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--orange);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--orange);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--orange);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .service-card p {
+            color: var(--light-gray);
+            line-height: 1.8;
+        }
+
+        /* Detailed Services */
+        .detailed-services {
+            padding: 6rem 0;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .detailed-services .section-title {
+            color: var(--white);
+        }
+
+        .detailed-services .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .service-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .service-detail:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-detail:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 300px;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            box-shadow: var(--box-shadow-dark);
+            border: 2px solid var(--orange);
+        }
+
+        .service-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .service-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--orange-light);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--black);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 6rem 0;
+            background: var(--dark-gray);
+            color: var(--white);
+        }
+
+        .process-section .section-title {
+            color: var(--white);
+        }
+
+        .process-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            transition: transform 0.3s ease;
+            color: var(--black);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .process-step p {
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-section .btn-secondary {
+            background: var(--white);
+            color: var(--orange);
+            border: 2px solid var(--white);
+        }
+
+        .cta-section .btn-secondary:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-info .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--orange);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-detail {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-detail:nth-child(even) {
+                direction: ltr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-section {
+                padding: 6rem 0 4rem;
+            }
+
+            .contact-info .container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .contact-item {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">Makeover Realestate</div>
-    <div class="social-links">
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Construction Consultancy Excellence</h1>
+                <p>Expert advisory services for construction projects from planning to completion. Professional guidance to ensure your project's success with optimal cost efficiency and quality standards.</p>
+                <div class="hero-cta">
+                    <a href="tel:+254703358650" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Get Expert Advice
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-chart-line"></i> Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Construction Consultancy Services</h2>
+            <p class="section-subtitle">Professional advisory services to optimize your construction projects and ensure successful outcomes</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Project Planning & Design</h3>
+                    <p>Comprehensive project planning, feasibility studies, and design consultation to set your construction project up for success.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Cost Estimation & Budgeting</h3>
+                    <p>Accurate cost analysis, budget planning, and financial projections to help you make informed investment decisions.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Project Management</h3>
+                    <p>End-to-end project management services ensuring timely delivery, quality control, and efficient resource utilization.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Legal & Regulatory Compliance</h3>
+                    <p>Guidance on building codes, permits, environmental regulations, and legal requirements for construction projects.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Quality Assurance & Inspections</h3>
+                    <p>Independent quality audits, progress monitoring, and compliance inspections to maintain construction standards.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Contractor & Vendor Management</h3>
+                    <p>Contractor selection, vendor evaluation, and procurement management to ensure reliable project execution.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="tel:+254703358650" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Start Consulting Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="detailed-services">
+        <div class="container">
+            <h2 class="section-title">Specialized Consultancy Solutions</h2>
+            <p class="section-subtitle">Expert consultation services tailored to your specific construction needs and project requirements</p>
+            
+            <div class="service-detail">
+                <div class="service-content">
+                    <h3>Project Planning & Feasibility Studies</h3>
+                    <p>Comprehensive project analysis and planning services to evaluate the viability and potential success of your construction project. Our experts provide detailed feasibility studies and strategic planning guidance.</p>
+                    <ul class="service-features">
+                        <li>Site analysis and evaluation</li>
+                        <li>Market research and demand analysis</li>
+                        <li>Financial feasibility assessment</li>
+                        <li>Risk analysis and mitigation strategies</li>
+                        <li>Project timeline and milestone planning</li>
+                        <li>Resource allocation and optimization</li>
+                    </ul>
+                    <a href="tel:+254703358650" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Plan Your Project
+                    </a>
+                </div>
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Construction planning consultation in Kenya" class="service-image">
+            </div>
+
+            <div class="service-detail">
+                <div class="service-content">
+                    <h3>Cost Management & Budget Control</h3>
+                    <p>Professional cost estimation and budget management services to keep your construction project financially on track. We provide accurate cost analysis and ongoing budget monitoring.</p>
+                    <ul class="service-features">
+                        <li>Detailed cost estimation and analysis</li>
+                        <li>Budget preparation and management</li>
+                        <li>Value engineering solutions</li>
+                        <li>Cost control and monitoring</li>
+                        <li>Change order evaluation</li>
+                        <li>Financial reporting and forecasting</li>
+                    </ul>
+                    <a href="tel:+254703358650" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Control Your Costs
+                    </a>
+                </div>
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Construction cost management consultation" class="service-image">
+            </div>
+
+            <div class="service-detail">
+                <div class="service-content">
+                    <h3>Quality Assurance & Risk Management</h3>
+                    <p>Independent quality oversight and risk management services to ensure your construction project meets the highest standards while minimizing potential risks and issues.</p>
+                    <ul class="service-features">
+                        <li>Quality control systems implementation</li>
+                        <li>Construction progress monitoring</li>
+                        <li>Risk assessment and management</li>
+                        <li>Compliance auditing and reporting</li>
+                        <li>Safety management consultation</li>
+                        <li>Performance benchmarking</li>
+                    </ul>
+                    <a href="tel:+254703358650" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Ensure Quality
+                    </a>
+                </div>
+                <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Construction quality assurance consultation" class="service-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Consultancy Services?</h2>
+            <p class="section-subtitle">Leading construction consultancy firm in Kenya with extensive experience and proven track record</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Projects Consulted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Average Cost Savings</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="tel:+254703358650" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Consult With Experts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Consultancy Process</h2>
+            <p class="section-subtitle">Systematic approach to providing expert construction advice and ensuring project success</p>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h4>Project Assessment</h4>
+                    <p>Initial evaluation of your project requirements, objectives, and constraints to understand your needs.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h4>Feasibility Analysis</h4>
+                    <p>Comprehensive analysis of project viability, including technical, financial, and market feasibility.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h4>Strategic Planning</h4>
+                    <p>Development of strategic plans, timelines, and recommendations for optimal project execution.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h4>Implementation Support</h4>
+                    <p>Ongoing guidance and support during project implementation to ensure adherence to plans.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">5</div>
+                    <h4>Monitoring & Control</h4>
+                    <p>Continuous monitoring of project progress, quality, and performance against established benchmarks.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">6</div>
+                    <h4>Final Evaluation</h4>
+                    <p>Post-project evaluation and recommendations for future improvements and lessons learned.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Expert Construction Advice?</h2>
+                <p>Transform your construction project with professional consultancy services. Get expert guidance to ensure success, minimize risks, and optimize your investment.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+254703358650" class="btn btn-dark">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/254703358650?text=Hello,%20I%20need%20construction%20consultancy%20services" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                    <a href="mailto:realestateandbuildingcompany@gmail.com?subject=Construction%20Consultancy%20Inquiry" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Email Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Contact Info -->
+    <div class="contact-info">
+        <div class="container">
+            <a href="tel:+254703358650" class="contact-item">
+                <i class="fas fa-phone"></i> +254703358650
+            </a>
+            <a href="https://wa.me/254703358650" class="contact-item">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:realestateandbuildingcompany@gmail.com" class="contact-item">
+                <i class="fas fa-envelope"></i> Email Us
+            </a>
+        </div>
     </div>
-    <button class="call-button" onclick="window.location.href='tel:+254712345678'">Call Us Now</button>
-    <button class="nav-toggle" id="nav-toggle"><ion-icon name="menu-outline"></ion-icon></button>
-    <ul class="nav-menu" id="nav-menu">
-      <li><a href="index.html#home">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="index.html#projects">Projects</a></li>
-      <li><a href="index.html#contact-us">Contact</a></li>
-    </ul>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-slideshow">
-        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1569144157591-6a9c4b93a2b4')"></div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1503387762-5927c29addb6')"></div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')"></div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40')"></div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1516321310768-79d0d8b6e5e4')"></div>
-      </div>
-      <button class="slide-nav prev" onclick="changeSlide(-1)">❮</button>
-      <button class="slide-nav next" onclick="changeSlide(1)">❯</button>
-      <div class="hero-content">
-        <h1>Expert Construction Consultancy</h1>
-        <p class="subtitle">Guiding Your Projects to Success in Kenya</p>
-        <div class="hero-features">
-          <div class="hero-feature">
-            <i class="fas fa-drafting-compass"></i>
-            <h3>Planning</h3>
-            <p>Strategic Expertise</p>
-          </div>
-          <div class="hero-feature">
-            <i class="fas fa-clipboard-check"></i>
-            <h3>Compliance</h3>
-            <p>Regulatory Guidance</p>
-          </div>
-          <div class="hero-feature">
-            <i class="fas fa-calculator"></i>
-            <h3>Cost Savings</h3>
-            <p>Optimized Budgets</p>
-          </div>
-        </div>
-        <button class="cta-button" onclick="document.getElementById('details').scrollIntoView({ behavior: 'smooth' });">Discover Our Expertise</button>
-      </div>
-      <div class="slide-indicators">
-        <div class="indicator active" onclick="goToSlide(0)"></div>
-        <div class="indicator" onclick="goToSlide(1)"></div>
-        <div class="indicator" onclick="goToSlide(2)"></div>
-        <div class="indicator" onclick="goToSlide(3)"></div>
-        <div class="indicator" onclick="goToSlide(4)"></div>
-      </div>
-    </section>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-    <section class="content-section" id="details">
-      <h2>Your Trusted Construction Partner</h2>
-      <p>🏆 <strong>Kenya's Premier Construction Consultancy</strong> 🏆</p>
-      <p>Makeover Real Estate & Building Contractors Limited offers expert consultancy services to ensure your construction projects in Kenya are seamless, cost-effective, and compliant. With over <strong>200+ successful consultations</strong>, our team of seasoned professionals guides you from concept to completion, saving you up to <strong>30% on project costs!</strong></p>
-      <div class="value-proposition">
-        <div class="value-item">
-          <h3>💰 Save on Costs</h3>
-          <p>Our expertise reduces project costs by 20-30% through optimized planning!</p>
-        </div>
-        <div class="value-item">
-          <h3>⚡ Streamlined Processes</h3>
-          <p>Fast-track your project with our efficient workflows and expertise!</p>
-        </div>
-        <div class="value-item">
-          <h3>🎯 Regulatory Compliance</h3>
-          <p>Navigate Kenya’s regulations with our 100% compliance guarantee!</p>
-        </div>
-      </div>
-      <div class="services-grid">
-        <div class="service-card" data-aos="fade-right">
-          <img src="assets/images/construction consulatancy.jpg" alt="Project Planning">
-          <div class="service-badge">MOST POPULAR</div>
-          <h3>📐 Comprehensive Project Planning</h3>
-          <p><strong>Starting from KSh 150,000</strong></p>
-          <p>Transform your vision into reality with our expert project planning. We create detailed roadmaps for residential and commercial projects across Kenya, ensuring timely and budget-friendly execution.</p>
-          <ul class="service-features">
-            <li>✓ Detailed Project Roadmaps</li>
-            <li>✓ Timeline Optimization</li>
-            <li>✓ Resource Allocation</li>
-            <li>✓ Risk Assessment</li>
-          </ul>
-          <button class="service-cta" onclick="window.location.href='tel:+254712345678'">Plan My Project</button>
-        </div>
-        <div class="service-card" data-aos="fade-up">
-          <img src="assets/images/feasibilty.jpg" alt="Feasibility Studies">
-          <div class="service-badge">HIGH VALUE</div>
-          <h3>🔍 Feasibility Studies</h3>
-          <p><strong>Starting from KSh 100,000</strong></p>
-          <p>Make informed decisions with our in-depth feasibility studies. We assess site suitability, costs, and risks for projects in Nairobi, Mombasa, and beyond, maximizing your investment returns.</p>
-          <ul class="service-features">
-            <li>✓ Site Analysis</li>
-            <li>✓ Cost-Benefit Analysis</li>
-            <li>✓ Environmental Impact</li>
-            <li>✓ Regulatory Review</li>
-          </ul>
-          <button class="service-cta" onclick="window.location.href='tel:+254712345678'">Get Feasibility Report</button>
-        </div>
-        <div class="service-card" data-aos="fade-left">
-          <img src="assets/images/compliance.jpg" alt="Regulatory Compliance">
-          <div class="service-badge">ESSENTIAL</div>
-          <h3>📜 Regulatory Compliance Guidance</h3>
-          <p><strong>Starting from KSh 80,000</strong></p>
-          <p>Navigate Kenya’s complex regulations with ease. Our experts ensure your project complies with NCA, NEMA, and local authority requirements, avoiding costly delays.</p>
-          <ul class="service-features">
-            <li>✓ Permit Acquisition</li>
-            <li>✓ Compliance Audits</li>
-            <li>✓ Documentation Support</li>
-            <li>✓ Liaison with Authorities</li>
-          </ul>
-          <button class="service-cta" onclick="window.location.href='tel:+254712345678'">Ensure Compliance</button>
-        </div>
-        <div class="service-card" data-aos="fade-right">
-          <img src="assets/images/cost management.jpg" alt="Cost Management">
-          <div class="service-badge">COST SAVER</div>
-          <h3>💸 Cost Management Solutions</h3>
-          <p><strong>Starting from KSh 120,000</strong></p>
-          <p>Optimize your budget with our cost management services. We provide accurate cost estimates and financial oversight to keep your Kenyan project within budget without compromising quality.</p>
-          <ul class="service-features">
-            <li>✓ Detailed Cost Estimates</li>
-            <li>✓ Budget Monitoring</li>
-            <li>✓ Value Engineering</li>
-            <li>✓ Financial Reporting</li>
-          </ul>
-          <button class="service-cta" onclick="window.location.href='tel:+254712345678'">Optimize My Budget</button>
-        </div>
-      </div>
-      <div class="testimonials-section">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial" data-aos="fade-up">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>"Makeover’s consultancy saved us millions on our Nairobi project. Their planning was spot-on, and we finished ahead of schedule!"</p>
-            <div class="client-info">
-              <strong>Peter Mwangi</strong> - Nairobi
-            </div>
-          </div>
-          <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>"Their feasibility study gave us confidence to proceed with our Mombasa commercial project. Highly professional and thorough!"</p>
-            <div class="client-info">
-              <strong>Amina Juma</strong> - Mombasa
-            </div>
-          </div>
-          <div class="testimonial" data-aos="fade-up" data-aos-delay="400">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>"Navigating regulations was a breeze with their guidance. Our Kisumu project was approved without any issues!"</p>
-            <div class="client-info">
-              <strong>John Ochieng</strong> - Kisumu
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="urgency-section">
-        <h2>🔥 Limited Time Offer - Act Now!</h2>
-        <div class="offer-container">
-          <div class="offer-text">
-            <h3>Get 15% OFF Your First Consultancy!</h3>
-            <p>Book your FREE consultation today and save big on expert guidance for your construction project. Offer ends soon!</p>
-            <div class="offer-features">
-              <p>✓ FREE Initial Consultation (Worth KSh 20,000)</p>
-              <p>✓ FREE Project Assessment (Worth KSh 15,000)</p>
-              <p>✓ 1-Year Follow-Up Support</p>
-              <p>✓ Flexible Payment Plans</p>
-            </div>
-          </div>
-          <div class="offer-cta">
-            <button class="big-cta-button" onclick="window.location.href='tel:+254712345678'">
-              📞 CALL NOW - GET 15% OFF!
-            </button>
-            <p class="urgency-text">⏰ Only 12 slots available this month!</p>
-          </div>
-        </div>
-      </div>
-      <div class="gallery">
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="assets/images/consultancy1.jpg" alt="Project Planning">
-          <div class="overlay"><span>Strategic Planning</span></div>
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/images/consultancy2.jpg" alt="Site Assessment">
-          <div class="overlay"><span>Site Expertise</span></div>
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-          <img src="assets/images/consultancy3.jpg" alt="Design Consultation">
-          <div class="overlay"><span>Design Excellence</span></div>
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
-          <img src="assets/images/consultancy4.jpg" alt="Team Collaboration">
-          <div class="overlay"><span>Team Synergy</span></div>
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="800">
-          <img src="assets/images/consultancy5.jpg" alt="Project Success">
-          <div class="overlay"><span>Project Success</span></div>
-        </div>
-      </div>
-      <div class="contact-info">
-        <h3>🚀 Ready to Start Your Project?</h3>
-        <p><strong>Don't wait! Expert guidance is just a call away!</strong></p>
-        <p>Join 200+ satisfied clients who trust Makeover Real Estate for their construction consultancy needs.</p>
-        <div class="contact-details">
-          <div class="contact-highlight">
-            <h4>📞 Call Now for Instant Quote!</h4>
-            <button class="call-button contact emergency" onclick="window.location.href='tel:+254712345678'">
-              CALL +254 712 345 678
-            </button>
-            <p>Available 24/7 - Free consultations!</p>
-          </div>
-          <div class="social-links contact">
-            <p>Follow our expert insights:</p>
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          </div>
-          <div>
-            <h4>📧 Get Quote via Email</h4>
-            <a href="mailto:info@makeoverrealestate.com">info@makeoverrealestate.com</a>
-          </div>
-          <div>
-            <h4>📍 Visit Our Office</h4>
-            <p>Nairobi, Kenya, Koinange Street</p>
-            <p>Open Mon-Sat: 8AM-6PM</p>
-          </div>
-        </div>
-        <div class="final-cta">
-          <p><strong>⚡ Act Fast! Limited slots available this month!</strong></p>
-        </div>
-      </div>
-    </section>
-  </main>
+        // Add scroll effect to service cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-  <footer class="footer">
-    <p>© 2025 Makeover Real Estate & Building Contractors Limited. All Rights Reserved.</p>
-  </footer>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
 
-  <script>
-    AOS.init({
-      duration: 1200,
-      once: true,
-    });
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        document.querySelector('.header').classList.add('scrolled');
-      } else {
-        document.querySelector('.header').classList.remove('scrolled');
-      }
-    });
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        indicators[i].classList.remove('active');
-      });
-      slides[index].classList.add('active');
-      indicators[index].classList.add('active');
-    }
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-    function changeSlide(direction) {
-      currentSlide = (currentSlide + direction + slides.length) % slides.length;
-      showSlide(currentSlide);
-    }
-    function goToSlide(index) {
-      currentSlide = index;
-      showSlide(currentSlide);
-    }
-    setInterval(nextSlide, 5000);
-    const heroSection = document.querySelector('.hero');
-    let autoAdvance = setInterval(nextSlide, 5000);
-    heroSection.addEventListener('mouseenter', () => {
-      clearInterval(autoAdvance);
-    });
-    heroSection.addEventListener('mouseleave', () => {
-      autoAdvance = setInterval(nextSlide, 5000);
-    });
-  </script>
+        document.querySelectorAll('.service-card, .process-step, .stat-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

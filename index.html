@@ -8,37 +8,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Makeover Real Estate & Building- Find your dream house</title>
   
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- 
-    - favicon
-  -->
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - custom css link
-  -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
-
-   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/style.css">
-
-
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <!-- LightGallery for potential gallery features -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+  <!-- Swiper for sliders -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <!-- Ionicons for footer and contact bar icons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <style>
     :root {
@@ -74,6 +60,7 @@
       font-family: 'Nunito Sans', sans-serif;
       line-height: 1.6;
       color: var(--dark-jungle-green);
+      padding-bottom: 60px; /* Prevent content overlap with fixed contact bar */
     }
 
     .container {
@@ -408,152 +395,342 @@
       }
     }
 
+    /* Footer Styles */
+    .footer {
+      background: var(--dark-jungle-green);
+      color: var(--white);
+      padding: 40px 0 20px;
+    }
+
+    .footer-top {
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-brand {
+      margin-bottom: 30px;
+    }
+
+    .footer-brand .logo-content {
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      font-size: 1rem;
+      color: var(--cadet);
+      margin-bottom: 20px;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .contact-list li {
+      margin-bottom: 10px;
+    }
+
+    .contact-link {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+    }
+
+    .contact-link:hover {
+      color: var(--yellow);
+    }
+
+    .social-list {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+
+    .social-link {
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+
+    .social-link:hover {
+      color: var(--yellow);
+    }
+
+    .footer-link-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .footer-list {
+      list-style: none;
+    }
+
+    .footer-list-title {
+      font-size: 1.2rem;
+      font-weight: var(--fw-700);
+      color: var(--white);
+      margin-bottom: 15px;
+    }
+
+    .footer-link {
+      color: var(--cadet);
+      text-decoration: none;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .footer-link:hover {
+      color: var(--yellow);
+    }
+
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      color: var(--cadet);
+    }
+
+    /* Contact Bar Styles */
+    .contact-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--dark-jungle-green);
+      color: var(--white);
+      padding: 10px 0;
+      z-index: 1000;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-bar-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+
+    .contact-bar-info a {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .contact-bar-info a:hover {
+      color: var(--yellow);
+    }
+
+    .contact-bar-social-list {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+
+    .contact-bar-social-link {
+      color: var(--white);
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-bar-social-link:hover {
+      color: var(--yellow);
+    }
+
+    .contact-bar .btn {
+      background: var(--yellow);
+      color: var(--white);
+      padding: 8px 20px;
+      font-size: 0.9rem;
+    }
+
+    .contact-bar .btn:hover {
+      background: #e67e22;
+      color: var(--white);
+    }
+  
+    
+    
+
+
     /* Mobile Responsive Design */
     @media (max-width: 768px) {
-      .hero {
-        margin-top: 120px; /* Increased to prevent navbar overlap */
-        min-height: 80vh;
+      .header {
+        position: static; /* Remove fixed positioning */
+        box-shadow: none; /* Remove shadow for seamless integration */
+        background: var(--white);
       }
-
+      .hero {
+        margin-top: 0; /* Remove margin-top since header is not fixed */
+      }
       .hero-slideshow {
         min-height: 500px;
       }
-
       .hero-slide {
         padding: 20px 15px;
       }
-
       .hero-slide-content {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
       }
-
       .hero-text-content {
         order: 1;
       }
-
       .hero-visual {
         order: 2;
         height: 250px;
       }
-
       .hero-title {
         font-size: 1.8rem;
       }
-
       .hero-description {
         font-size: 0.9rem;
       }
-
       .hero-stats {
         position: static;
         margin-top: 15px;
         padding: 15px;
       }
-
       .hero-stats-item {
         margin-bottom: 8px;
       }
-
       .hero-stats-number {
         font-size: 1.2rem;
       }
-
       .hero-stats-label {
         font-size: 0.8rem;
       }
-
       .navbar-list {
         display: none;
       }
-
       .logo-text {
         font-size: 1rem;
       }
-
       .hero-navigation {
         bottom: 20px;
       }
-
       .hero-dot {
         width: 10px;
         height: 10px;
       }
+      .footer-link-box {
+        grid-template-columns: 1fr;
+      }
+      .footer-brand {
+        text-align: center;
+      }
+      .contact-list,
+      .social-list {
+        justify-content: center;
+      }
+      .contact-bar {
+        padding: 5px 0; /* Reduced padding for smaller contact bar */
+      }
+      .contact-bar .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .contact-bar-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.85rem; /* Slightly smaller font size */
+      }
+      .contact-bar-social-list {
+        gap: 12px;
+      }
+      .contact-bar .btn {
+        padding: 6px 12px; /* Smaller button padding */
+        font-size: 0.85rem;
+      }
     }
+  
+
 
     @media (max-width: 480px) {
       .hero {
-        margin-top: 100px; /* Increased to prevent navbar overlap */
         min-height: 70vh;
       }
-
       .hero-slideshow {
         min-height: 450px;
       }
-
       .hero-slide {
         padding: 15px 10px;
       }
-
       .hero-slide-content {
         gap: 20px;
       }
-
       .hero-visual {
         height: 200px;
       }
-
       .hero-title {
         font-size: 1.5rem;
         margin-bottom: 15px;
       }
-
       .hero-description {
         font-size: 0.85rem;
         margin-bottom: 20px;
       }
-
       .hero-subtitle {
         font-size: 0.8rem;
         margin-bottom: 15px;
       }
-
       .btn {
         padding: 10px 25px;
         font-size: 0.9rem;
       }
-
       .hero-stats {
         padding: 12px;
       }
-
       .hero-stats-item {
         margin-bottom: 5px;
       }
-
       .hero-stats-number {
         font-size: 1rem;
       }
-
       .hero-stats-label {
         font-size: 0.7rem;
       }
-
       .header-top-link span {
         display: none;
       }
-
       .header-top-social-list {
         gap: 10px;
       }
-
       .logo-content i {
         font-size: 1.5rem;
       }
-
       .logo-text {
         font-size: 0.9rem;
+      }
+      .contact-bar-info {
+        font-size: 0.8rem;
+      }
+      .contact-bar-social-list {
+        gap: 10px;
+      }
+      .contact-bar .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
       }
     }
 
@@ -561,17 +738,14 @@
       .hero-title {
         font-size: 1.3rem;
       }
-      
       .hero-visual {
         height: 180px;
       }
-      
       .hero-slide-content {
         gap: 15px;
       }
     }
   </style>
-  
 </head>
 
 <body>
@@ -586,10 +760,10 @@
           </a>
         </div>
         <ul class="header-top-social-list">
-          <li><a href="#" class="header-top-social-link"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#" class="header-top-social-link"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#" class="header-top-social-link"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#" class="header-top-social-link"><i class="fab fa-pinterest"></i></a></li>
+          <li><a href="https://www.facebook.com/share/1A9r4M7C3t/?mibextid=wwXIfr" class="header-top-social-link"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#" class="header-top-social-link"><i class="fab fa-tiktok"></i></a></li>
+          <li><a href="https://www.instagram.com/makeover_realestate?igsh=eDB4ZHUybHlraGsy&utm_source=qr" class="header-top-social-link"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#" class="header-top-social-link"><i class="fab fa-linkedin"></i></a></li>
         </ul>
       </div>
     </div>
@@ -607,7 +781,7 @@
             <li><a href="#about" class="navbar-link">About</a></li>
             <li><a href="#services" class="navbar-link">Services</a></li>
             <li><a href="#projects" class="navbar-link">Projects</a></li>
-            <li><a href="#contact" class="navbar-link">Contact</a></li>
+            <li><a href="#contact-us" class="navbar-link">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -627,7 +801,7 @@
             </p>
             <h1 class="hero-title">CRAFTING YOUR DREAM HOME WITH EXCELLENCE</h1>
             <p class="hero-description">
-              With over 2 years of experience, we transform dreams into reality across Kenya. 
+              With over 5 years of experience, we transform dreams into reality across Kenya. 
               We specialize in creating luxurious, modern homes and delivering top-tier construction services.
             </p>
             <a href="#about" class="btn">Discover More</a>
@@ -742,8 +916,6 @@
         </div>
       </div>
 
-      <!-- Navigation Controls - Removed -->
-
       <!-- Navigation Dots -->
       <div class="hero-navigation">
         <span class="hero-dot active" onclick="currentSlide(1)"></span>
@@ -759,6 +931,29 @@
     </div>
   </section>
 
+  <!-- Contact Bar -->
+  <div class="contact-bar">
+    <div class="container">
+      <div class="contact-bar-info">
+        <a href="mailto:realestateandbuildingcompany@gmail.com">
+          <i class="fas fa-envelope"></i>
+          <span>realestateandbuildingcompany@gmail.com</span>
+        </a>
+        <a href="tel:+254703358650">
+          <i class="fas fa-phone"></i>
+          <span>+254703 358 650</span>
+        </a>
+      </div>
+      <ul class="contact-bar-social-list">
+        <li><a href="https://www.facebook.com/share/1A9r4M7C3t/?mibextid=wwXIfr" class="contact-bar-social-link"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="#" class="contact-bar-social-link"><i class="fab fa-tiktok"></i></a></li>
+        <li><a href="https://www.instagram.com/makeover_realestate?igsh=eDB4ZHUybHlraGsy&utm_source=qr" class="contact-bar-social-link"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#" class="contact-bar-social-link"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
+      <a href="tel:+254703358650" class="btn">Call Us Now</a>
+    </div>
+  </div>
+
   <script>
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.hero-slide');
@@ -768,59 +963,44 @@
     let slideTimer;
     let progressTimer;
 
-    // Initialize slideshow
     function initSlideshow() {
       showSlide(currentSlideIndex);
       startAutoSlide();
     }
 
-    // Show specific slide
     function showSlide(index) {
-      // Hide all slides
       slides.forEach(slide => {
         slide.classList.remove('active');
       });
-      
-      // Remove active class from all dots
       dots.forEach(dot => {
         dot.classList.remove('active');
       });
-      
-      // Show current slide
       slides[index].classList.add('active');
       dots[index].classList.add('active');
-      
-      // Update progress bar
       updateProgressBar();
     }
 
-    // Next slide
     function nextSlide() {
       currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
       showSlide(currentSlideIndex);
     }
 
-    // Previous slide
     function prevSlide() {
       currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
       showSlide(currentSlideIndex);
     }
 
-    // Change slide by direction
     function changeSlide(direction) {
       clearInterval(slideTimer);
       clearInterval(progressTimer);
-      
       if (direction === 1) {
         nextSlide();
       } else {
         prevSlide();
       }
-      
       startAutoSlide();
     }
 
-    // Go to specific slide
     function currentSlide(index) {
       clearInterval(slideTimer);
       clearInterval(progressTimer);
@@ -829,21 +1009,17 @@
       startAutoSlide();
     }
 
-    // Start automatic slideshow
     function startAutoSlide() {
       slideTimer = setInterval(nextSlide, slideInterval);
       startProgressBar();
     }
 
-    // Progress bar animation
     function startProgressBar() {
       const progressBar = document.querySelector('.hero-progress-bar');
       let width = 0;
-      
       progressTimer = setInterval(() => {
         width += 100 / (slideInterval / 100);
         progressBar.style.width = width + '%';
-        
         if (width >= 100) {
           width = 0;
           progressBar.style.width = '0%';
@@ -851,13 +1027,11 @@
       }, 100);
     }
 
-    // Update progress bar immediately
     function updateProgressBar() {
       const progressBar = document.querySelector('.hero-progress-bar');
       progressBar.style.width = '0%';
     }
 
-    // Pause slideshow on hover
     const heroSection = document.querySelector('.hero');
     heroSection.addEventListener('mouseenter', () => {
       clearInterval(slideTimer);
@@ -868,7 +1042,6 @@
       startAutoSlide();
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
         changeSlide(-1);
@@ -877,7 +1050,6 @@
       }
     });
 
-    // Touch/Swipe support for mobile
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -893,22 +1065,17 @@
     function handleSwipe() {
       const swipeThreshold = 50;
       const diff = touchStartX - touchEndX;
-      
       if (Math.abs(diff) > swipeThreshold) {
         if (diff > 0) {
-          // Swipe left (next slide)
           changeSlide(1);
         } else {
-          // Swipe right (previous slide)
           changeSlide(-1);
         }
       }
     }
 
-    // Initialize on page load
     document.addEventListener('DOMContentLoaded', initSlideshow);
 
-    // Pause slideshow when tab is not visible
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         clearInterval(slideTimer);
@@ -920,1000 +1087,1853 @@
   </script>
 </body>
 </html>
-      <!-- 
-  - #ABOUT
--->
-<section class="about" id="about">
-  <div class="container">
-    <figure class="about-banner">
-      <img src="./assets/images/about-banner-1.png" alt="House interior">
-      <img src="./assets/images/about-banner-2.jpg" alt="House interior" class="abs-img">
-    </figure>
-    <div class="about-content">
-      <p class="section-subtitle">About Us</p>
-      <h2 class="h2 section-title">Your Trusted Real Estate & Construction Partner in Kenya</h2>
-      <p class="about-text">
-        With over 2 years of experience, Makeover Real Estate & Building Contractors Limited has been transforming dreams into reality across Kenya. We specialize in creating luxurious, modern homes and delivering top-tier construction services tailored to our clients’ unique needs.
-      </p>
-      <p class="about-text">
-        Customers trust us for our unwavering commitment to quality, transparency, and excellence. From personalized designs to timely project delivery, we ensure every detail is perfected. Our deep understanding of the Kenyan market, combined with a dedicated team of professionals, allows us to exceed expectations while maintaining the highest standards of safety and sustainability.
-      </p>
-      <ul class="about-list">
-        <li class="about-item">
-          <div class="about-item-icon">
-            <ion-icon name="home-outline"></ion-icon>
-          </div>
-          <p class="about-item-text">Smart Home Design</p>
-        </li>
-        <li class="about-item">
-          <div class="about-item-icon">
-            <ion-icon name="leaf-outline"></ion-icon>
-          </div>
-          
-        </li>
-        <li class="about-item">
-          <div class="about-item-icon">
-            <ion-icon name="wine-outline"></ion-icon>
-          </div>
-          <p class="about-item-text">Exceptional Lifestyle</p>
-        </li>
-        <li class="about-item">
-          <div class="about-item-icon">
-            <ion-icon name="shield-checkmark-outline"></ion-icon>
-          </div>
-          
-        </li>
-      </ul>
-      <p class="callout">
-        "Building your vision with precision and passion, right here in Kenya."
-      </p>
-      <a href="#services" class="btn">Our Services</a>
-    </div>
-  </div>
-</section>
-            
-
-
-
-
-  <!-- Only the services section is provided here for brevity -->
-<section class="services" id="services">
-  <h1 class="heading">Our Services</h1>
-  <div class="box-container">
-    <div class="box">
-      <img src="assets/images/building.jpg" alt="Building Construction">
-      <h3>Building and Construction</h3>
-      <p>Comprehensive construction services for residential and commercial projects, delivering quality and durability.</p>
-      <a href="building-construction.html" class="btn">Read More</a>
-    </div>
-    <div class="box">
-      <img src="assets/images/interior design.jpg" alt="Interior and Architecture Design">
-      <h3>Interior and Architecture Design</h3>
-      <p>Creative designs blending aesthetics and functionality for modern living spaces.</p>
-      <a href="interior-design.html" class="btn">Read More</a>
-    </div>
-    <div class="box">
-      <img src="assets/images/consult.jpg" alt="Construction Consultancy">
-      <h3>Construction Consultancy</h3>
-      <p>Expert guidance for seamless project planning and execution.</p>
-      <a href="construction-consultancy.html" class="btn">Read More</a>
-    </div>
-    <div class="box">
-      <img src="assets/images/civil works.jpg" alt="Civil Works">
-      <h3>Civil Works</h3>
-      <p>Infrastructure solutions including roads, bridges, and utilities with precision.</p>
-      <a href="civil-works.html" class="btn">Read More</a>
-    </div>
-    <div class="box">
-      <img src="assets/images/realestate.jpg" alt="Real Estate Agency">
-      <h3>Real Estate Agency</h3>
-      <p>Connecting clients with premium properties for sale and rent in Kenya.</p>
-      <a href="services/real-estate-agency.html" class="btn">Read More</a>
-    </div>
-    <div class="box">
-      <img src="assets/images/renovations.jpg" alt="Building Renovations">
-      <h3>Building Renovations</h3>
-      <p>Revitalizing existing structures with modern upgrades and sustainable practices.</p>
-      <a href="services/building-renovations.html" class="btn">Read More</a>
-    </div>
-  </div>
-</section>
-   <!-- services section ends -->
-
-     
-
-
-
-
-<!-- projects section starts -->
-<section class="projects" id="projects">
-  <h1 class="heading">Our Projects</h1>
-  <div class="featured-badge">
-    <i class="fas fa-star"></i> Featured Project
-  </div>
-  
-  <div class="project-container">
-    <div class="project-header">
-      <h2 class="project-title">Katani Springs Estate</h2>
-      <div class="project-location">
-        <i class="fas fa-map-marker-alt"></i>
-        Spring Road Estate, Katani - Machakos County
-      </div>
-      
-      <div class="price-banner">
-        <h3>Special Launch Price</h3>
-        <!--<div class="price">KES 14,000,000</div>-->
-        <div class="price-note">Flexible payment plans available</div>
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <figure class="about-banner">
+        <img src="./assets/images/about-banner-1.png" alt="House interior">
+        <img src="./assets/images/about-banner-2.jpg" alt="House interior" class="abs-img">
+      </figure>
+      <div class="about-content">
+        <p class="section-subtitle">About Us</p>
+        <h2 class="h2 section-title">Your Trusted Real Estate & Construction Partner in Kenya</h2>
+        <p class="about-text">
+          Registered and trusted with over 5 years of experience, Makeover Real Estate & Building Contractors Limited has been transforming dreams into reality across Kenya. We specialize in creating luxurious, modern homes and delivering top-tier construction services tailored to our clients’ unique needs.
+        </p>
+        <p class="about-text">
+          Customers trust us for our unwavering commitment to quality, transparency, and excellence. From personalized designs to timely project delivery, we ensure every detail is perfected. Our deep understanding of the Kenyan market, combined with a dedicated team of professionals, allows us to exceed expectations while maintaining the highest standards of safety and sustainability.
+        </p>
+        <ul class="about-list">
+          <li class="about-item">
+            <div class="about-item-icon">
+              <ion-icon name="home-outline"></ion-icon>
+            </div>
+            <p class="about-item-text">Smart Home Design</p>
+          </li>
+          <li class="about-item">
+            <div class="about-item-icon">
+              <ion-icon name="leaf-outline"></ion-icon>
+            </div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-icon">
+              <ion-icon name="wine-outline"></ion-icon>
+            </div>
+            <p class="about-item-text">Exceptional Lifestyle</p>
+          </li>
+          <li class="about-item">
+            <div class="about-item-icon">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+            </div>
+          </li>
+        </ul>
+        <p class="callout">
+          "Building your vision with precision and passion, right here in Kenya."
+        </p>
+        <a href="#services" class="btn">Our Services</a>
       </div>
     </div>
+  </section>
 
-    <div class="project-content">
-      <div class="project-overview">
-        <div class="project-description">
-          <h3>Project Overview</h3>
-          <p>A magnificent 3-bedroom bungalow masterpiece situated on a generous 50x100 plot in the prestigious Spring Road Estate, Katani. This exceptional property combines modern architectural design with practical living spaces, perfect for discerning families.</p>
-          <p>Located in a well-developed and serene environment, the estate offers excellent connectivity to Nairobi, reliable infrastructure, and all essential amenities within reach.</p>
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <h1 class="heading">Our Services</h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="assets/images/building.jpg" alt="Building Construction">
+        <h3>Building and Construction</h3>
+        <p>Comprehensive construction services for residential and commercial projects, delivering quality and durability.</p>
+        <a href="building-construction.html" class="btn">Read More</a>
+      </div>
+      <div class="box">
+        <img src="assets/images/interior design.jpg" alt="Interior and Architecture Design">
+        <h3>Interior and Architecture Design</h3>
+        <p>Creative designs blending aesthetics and functionality for modern living spaces.</p>
+        <a href="interior-design.html" class="btn">Read More</a>
+      </div>
+      <div class="box">
+        <img src="assets/images/consult.jpg" alt="Construction Consultancy">
+        <h3>Construction Consultancy</h3>
+        <p>Expert guidance for seamless project planning and execution.</p>
+        <a href="construction-consultancy.html" class="btn">Read More</a>
+      </div>
+      <div class="box">
+        <img src="assets/images/civil works.jpg" alt="Civil Works">
+        <h3>Civil Works</h3>
+        <p>Infrastructure solutions including roads, bridges, and utilities with precision.</p>
+        <a href="civil-works.html" class="btn">Read More</a>
+      </div>
+      <div class="box">
+        <img src="assets/images/realestate.jpg" alt="Real Estate Agency">
+        <h3>Real Estate Agency</h3>
+        <p>Connecting clients with premium properties for sale and rent in Kenya.</p>
+        <a href="real-estate-agency.html" class="btn">Read More</a>
+      </div>
+      <div class="box">
+        <img src="assets/images/renovations.jpg" alt="Building Renovations">
+        <h3>Building Renovations</h3>
+        <p>Revitalizing existing structures with modern upgrades and sustainable practices.</p>
+        <a href="renovations.html" class="btn">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <h1 class="heading">Our Projects</h1>
+    <div class="featured-badge">
+      <i class="fas fa-star"></i> Featured Project
+    </div>
+    <div class="project-container">
+      <div class="project-header">
+        <h2 class="project-title">Katani Springs Estate</h2>
+        <div class="project-location">
+          <i class="fas fa-map-marker-alt"></i>
+          Spring Road Estate, Katani - Machakos County
         </div>
-
-        <div class="key-highlights">
-          <h4>Key Highlights</h4>
-          <ul>
-            <li>30 minutes to Nairobi CBD</li>
-            <li>Near SGR Syokimau Station</li>
-            <li>Fully serviced plot</li>
-            <li>Secure gated community</li>
-            <li>Ready for immediate occupation</li>
-            <li>Title deed ready</li>
-          </ul>
+        <div class="price-banner">
+          <h3>Special Launch Price</h3>
+          <div class="price-note">Flexible payment plans available</div>
         </div>
       </div>
-
-      <div class="features-section">
-        <h3>Property Features</h3>
-        <div class="features-grid">
-          <div class="feature-card">
-            <i class="fas fa-home"></i>
-            <h4>Living Spaces</h4>
-            <ul>
-              <li>Spacious Lounge: 27m²</li>
-              <li>Elegant Dining: 13.4m²</li>
-              <li>Modern Kitchen: 14m²</li>
-              <li>Pantry Area</li>
-              <li>Open-plan design</li>
-            </ul>
+      <div class="project-content">
+        <div class="project-overview">
+          <div class="project-description">
+            <h3>Project Overview</h3>
+            <p>A magnificent 3-bedroom bungalow masterpiece situated on a generous 50x100 plot in the prestigious Spring Road Estate, Katani. This exceptional property combines modern architectural design with practical living spaces, perfect for discerning families.</p>
+            <p>Located in a well-developed and serene environment, the estate offers excellent connectivity to Nairobi, reliable infrastructure, and all essential amenities within reach.</p>
           </div>
-
-          <div class="feature-card">
-            <i class="fas fa-bed"></i>
-            <h4>Bedrooms & Bathrooms</h4>
+          <div class="key-highlights">
+            <h4>Key Highlights</h4>
             <ul>
-              <li>3 Ensuite Bedrooms</li>
-              <li>Master with Walk-in Wardrobe</li>
-              <li>Detached Ensuite SQ</li>
-              <li>Modern bathroom fittings</li>
-              <li>Ample storage space</li>
-            </ul>
-          </div>
-
-          <div class="feature-card">
-            <i class="fas fa-ruler-combined"></i>
-            <h4>Property Specifications</h4>
-            <ul>
-              <li>Plot Size: 50x100 feet</li>
-              <li>Total Floor Area: 168m²</li>
-              <li>Bungalow design</li>
-              <li>Quality finishes</li>
-              <li>Parking space</li>
-            </ul>
-          </div>
-
-          <div class="feature-card">
-            <i class="fas fa-map-marked-alt"></i>
-            <h4>Location Advantages</h4>
-            <ul>
-              <li>Good road network</li>
-              <li>Shopping centers nearby</li>
-              <li>Quality schools</li>
-              <li>Healthcare facilities</li>
-              <li>Water & electricity</li>
+              <li>30 minutes to Nairobi CBD</li>
+              <li>Near SGR Syokimau Station</li>
+              <li>Fully serviced plot</li>
+              <li>Secure gated community</li>
+              <li>Ready for immediate occupation</li>
+              <li>Title deed ready</li>
             </ul>
           </div>
         </div>
-      </div>
-
-      <div class="visual-section">
-        <h3>Project Visualizations</h3>
-        <div class="visual-grid">
-          <div class="visual-card">
-            <div class="visual-placeholder">
-              <div class="visual-placeholder-content">
-                <i class="fas fa-home"></i>
-                <p>3D Exterior Rendering<br>Coming Soon</p>
+        <div class="features-section">
+          <h3>Property Features</h3>
+          <div class="features-grid">
+            <div class="feature-card">
+              <i class="fas fa-home"></i>
+              <h4>Living Spaces</h4>
+              <ul>
+                <li>Spacious Lounge: 27m²</li>
+                <li>Elegant Dining: 13.4m²</li>
+                <li>Modern Kitchen: 14m²</li>
+                <li>Pantry Area</li>
+                <li>Open-plan design</li>
+              </ul>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-bed"></i>
+              <h4>Bedrooms & Bathrooms</h4>
+              <ul>
+                <li>3 Ensuite Bedrooms</li>
+                <li>Master with Walk-in Wardrobe</li>
+                <li>Detached Ensuite SQ</li>
+                <li>Modern bathroom fittings</li>
+                <li>Ample storage space</li>
+              </ul>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-ruler-combined"></i>
+              <h4>Property Specifications</h4>
+              <ul>
+                <li>Plot Size: 50x100 feet</li>
+                <li>Total Floor Area: 168m²</li>
+                <li>Bungalow design</li>
+                <li>Quality finishes</li>
+                <li>Parking space</li>
+              </ul>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-map-marked-alt"></i>
+              <h4>Location Advantages</h4>
+              <ul>
+                <li>Good road network</li>
+                <li>Shopping centers nearby</li>
+                <li>Quality schools</li>
+                <li>Healthcare facilities</li>
+                <li>Water & electricity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="visual-section">
+          <h3>Project Visualizations</h3>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <div class="visual-placeholder">
+                <div class="visual-placeholder-content">
+                  <i class="fas fa-home"></i>
+                  <p>3D Exterior Rendering<br>Coming Soon</p>
+                </div>
+              </div>
+              <div class="visual-card-content">
+                <h4>Exterior Design</h4>
+                <p>Modern bungalow with elegant architectural details and landscaping</p>
               </div>
             </div>
-            <div class="visual-card-content">
-              <h4>Exterior Design</h4>
-              <p>Modern bungalow with elegant architectural details and landscaping</p>
-            </div>
-          </div>
-
-          <div class="visual-card">
-            <div class="visual-placeholder">
-              <div class="visual-placeholder-content">
-                <i class="fas fa-couch"></i>
-                <p>Interior Layout<br>Floor Plans Available</p>
+            <div class="visual-card">
+              <div class="visual-placeholder">
+                <div class="visual-placeholder-content">
+                  <i class="fas fa-couch"></i>
+                  <p>Interior Layout<br>Floor Plans Available</p>
+                </div>
+              </div>
+              <div class="visual-card-content">
+                <h4>Interior Spaces</h4>
+                <p>Spacious open-plan living with modern kitchen and comfortable bedrooms</p>
               </div>
             </div>
-            <div class="visual-card-content">
-              <h4>Interior Spaces</h4>
-              <p>Spacious open-plan living with modern kitchen and comfortable bedrooms</p>
-            </div>
-          </div>
-
-          <div class="visual-card">
-            <div class="visual-placeholder">
-              <div class="visual-placeholder-content">
-                <i class="fas fa-map"></i>
-                <p>Site Plan<br>Master Plan Ready</p>
+            <div class="visual-card">
+              <div class="visual-placeholder">
+                <div class="visual-placeholder-content">
+                  <i class="fas fa-map"></i>
+                  <p>Site Plan<br>Master Plan Ready</p>
+                </div>
+              </div>
+              <div class="visual-card-content">
+                <h4>Estate Layout</h4>
+                <p>Well-planned development with green spaces and infrastructure</p>
               </div>
             </div>
-            <div class="visual-card-content">
-              <h4>Estate Layout</h4>
-              <p>Well-planned development with green spaces and infrastructure</p>
+          </div>
+        </div>
+        <div class="cta-section">
+          <h3>Ready to Make This Your Home?</h3>
+          <p class="cta-subtitle">Don't miss out on this exceptional opportunity. Contact our team today for more information.</p>
+          <div class="cta-buttons">
+            <a href="tel:+254703358650" class="btn btn-primary">
+              <i class="fas fa-phone"></i> Schedule Site Visit
+            </a>
+            <a href="mailto:realestateandbuildingcompany@gmail.com?subject=Payment%20Plan%20Inquiry&body=Hello,%20I%20would%20like%20to%20inquire%20about%20the%20payment%20plan%20for%20Katani%20Springs%20Estate." class="btn btn-secondary">
+              <i class="fas fa-calculator"></i> Get Payment Plan
+            </a>
+            <a href="data:text/plain;charset=utf-8,KATANI SPRINGS ESTATE BROCHURE%0A%0AProperty: 3-Bedroom Bungalow%0ALocation: Spring Road Estate, Katani%0APrice: KES 14,000,000%0APlot Size: 50x100 feet%0AFloor Area: 168m²%0A%0AFeatures:%0A- Spacious Lounge: 27m²%0A- Elegant Dining: 13.4m²%0A- Modern Kitchen: 14m²%0A- 3 Ensuite Bedrooms%0A- Master with Walk-in Wardrobe%0A- Detached Ensuite SQ%0A%0ALocation Benefits:%0A- 30 minutes to Nairobi CBD%0A- Near SGR Syokimau Station%0A- Fully serviced plot%0A- Secure gated community%0A%0AContact: +254 700 123 456%0AEmail: info@katanisprings.co.ke" download="Katani_Springs_Estate_Brochure.txt" class="btn btn-outline">
+              <i class="fas fa-download"></i> Download Brochure
+            </a>
+          </div>
+          <div class="contact-info">
+            <h4>Contact Our Sales Team</h4>
+            <div class="contact-grid">
+              <a href="tel:+254703358650" class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+254703358650</span>
+              </a>
+              <a href="https://wa.me/254703358650?text=Hello,%20I%20am%20interested%20in%20Katani%20Springs%20Estate" class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <!-- <span>+254 700 123 456</span> -->
+              </a>
+              <a href="mailto:realestateandbuildingcompany@gmail.com?subject=Katani%20Springs%20Estate%20Inquiry" class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>realestateandbuildingcompany@gmail.com</span>
+              </a>
+              <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <span>Mon-Sat: 8AM-6PM</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="cta-section">
-        <h3>Ready to Make This Your Home?</h3>
-        <p class="cta-subtitle">Don't miss out on this exceptional opportunity. Contact our team today for more information.</p>
+  <style>
+    /* Featured Project Styles */
+    .projects .featured-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--white);
+      padding: 0.8rem 2rem;
+      border-radius: 5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .projects .project-container {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      margin-bottom: 3rem;
+      max-width: 120rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .projects .project-header {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 3px solid var(--yellow);
+    }
+
+    .projects .project-title {
+      font-size: 2.8rem;
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: capitalize;
+    }
+
+    .projects .project-location {
+      font-size: 1.4rem;
+      color: var(--light-color);
+      margin-bottom: 2rem;
+    }
+
+    .projects .project-location i {
+      color: var(--yellow);
+      margin-right: 0.5rem;
+    }
+
+    .projects .price-banner {
+      background: var(--yellow);
+      color: var(--white);
+      padding: 2rem;
+      margin: 2rem auto;
+      border-radius: 1rem;
+      text-align: center;
+      max-width: 40rem;
+    }
+
+    .projects .price-banner h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .projects .price-banner .price {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .projects .price-banner .price-note {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .projects .project-content {
+      padding: 3rem 2rem;
+      background: var(--white);
+    }
+
+    .projects .project-overview {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .projects .project-description h3 {
+      font-size: 2.2rem;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .projects .project-description p {
+      font-size: 1.6rem;
+      color: var(--light-color);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .projects .key-highlights {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 1rem;
+      border-left: 5px solid var(--yellow);
+    }
+
+    .projects .key-highlights h4 {
+      font-size: 1.8rem;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .projects .key-highlights ul {
+      list-style: none;
+    }
+
+    .projects .key-highlights ul li {
+      font-size: 1.4rem;
+      color: var(--light-color);
+      padding: 0.5rem 0;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .projects .key-highlights ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--yellow);
+      font-weight: bold;
+    }
+
+    .projects .features-section {
+      margin-bottom: 3rem;
+    }
+
+    .projects .features-section h3 {
+      font-size: 2.2rem;
+      color: var(--black);
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .projects .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      gap: 2rem;
+    }
+
+    .projects .feature-card {
+      background: var(--white);
+      border: 1px solid #eee;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--yellow);
+    }
+
+    .projects .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .projects .feature-card i {
+      font-size: 3rem;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    .projects .feature-card h4 {
+      font-size: 1.8rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .projects .feature-card ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .projects .feature-card ul li {
+      font-size: 1.4rem;
+      color: var(--light-color);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .projects .feature-card ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--yellow);
+      font-weight: bold;
+    }
+
+    .projects .feature-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .projects .visual-section {
+      margin-bottom: 3rem;
+    }
+
+    .projects .visual-section h3 {
+      font-size: 2.2rem;
+      color: var(--black);
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .projects .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+      gap: 2rem;
+    }
+
+    .projects .visual-card {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      border: 1px solid #eee;
+    }
+
+    .projects .visual-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .projects .visual-placeholder {
+      height: 18rem;
+      background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .projects .visual-placeholder::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 4rem;
+      height: 4rem;
+      border: 2px solid var(--yellow);
+      border-radius: 50%;
+      border-top: 2px solid transparent;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .projects .visual-placeholder-content {
+      z-index: 1;
+      position: relative;
+    }
+
+    .projects .visual-placeholder i {
+      font-size: 3rem;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    .projects .visual-placeholder p {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .projects .visual-card-content {
+      padding: 1.5rem;
+    }
+
+    .projects .visual-card h4 {
+      font-size: 1.6rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .projects .visual-card p {
+      color: var(--light-color);
+      font-size: 1.4rem;
+      line-height: 1.6;
+    }
+
+    .projects .cta-section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+
+    .projects .cta-section h3 {
+      font-size: 2.2rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .projects .cta-section .cta-subtitle {
+      font-size: 1.4rem;
+      color: var(--light-color);
+      margin-bottom: 2rem;
+    }
+
+    .projects .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .projects .btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-transform: capitalize;
+    }
+
+    .projects .btn-primary {
+      background: var(--yellow);
+      color: var(--white);
+    }
+
+    .projects .btn-primary:hover {
+      background: #e67e22;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    }
+
+    .projects .btn-secondary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .projects .btn-secondary:hover {
+      background: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .projects .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .projects .btn-outline:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .projects .contact-info {
+      background: rgba(0, 0, 0, 0.3);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-top: 2rem;
+    }
+
+    .projects .contact-info h4 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--yellow);
+      text-align: center;
+    }
+
+    .projects .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+      gap: 1.5rem;
+    }
+
+    .projects .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.4rem;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .projects .contact-item:hover {
+      color: var(--yellow);
+    }
+
+    .projects .contact-item i {
+      color: var(--yellow);
+      width: 2rem;
+      text-align: center;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .projects .project-overview {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .projects .project-content {
+        padding: 2rem 1rem;
+      }
+
+      .projects .project-header {
+        padding: 2rem 1rem;
+      }
+
+      .projects .price-banner .price {
+        font-size: 2.5rem;
+      }
+
+      .projects .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects .visual-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .projects .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .projects .project-title {
+        font-size: 2rem;
+      }
+
+      .projects .btn {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+      }
+
+      .projects .cta-section {
+        padding: 2rem 1rem;
+      }
+
+      .projects .contact-info {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+
+  <a href="tel:+254700123456" class="btn">Reach out to our team for enquiries</a>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Contact Section</title>
+    <style>
+        :root {
+            --yellow: #f5c518;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --light-color: #666666;
+            --border: 1px solid #e0e0e0;
+            --gradient-primary: linear-gradient(135deg, #f5c518 0%, #ffd700 100%);
+            --gradient-secondary: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        .contact-us {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-us::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(245, 197, 24, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(245, 197, 24, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact-us .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-us .heading {
+            color: var(--black);
+            font-size: 4rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-us .heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .contact-us .section-subtitle {
+            font-size: 1.8rem;
+            color: var(--light-color);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .contact-us .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+            gap: 2.5rem;
+            max-width: 140rem;
+            margin: 0 auto 6rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-us .team-member {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-us .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(245, 197, 24, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .contact-us .team-member:hover::before {
+            left: 100%;
+        }
+
+        .contact-us .team-member:hover {
+            transform: translateY(-1rem) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--yellow);
+        }
+
+        .contact-us .team-member .avatar {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+            font-weight: bold;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
+        }
+
+        .contact-us .team-member:hover .avatar {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .contact-us .team-member h3 {
+            font-size: 2.2rem;
+            color: var(--black);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .contact-us .team-member .role {
+            font-size: 1.6rem;
+            color: var(--yellow);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-us .team-member .contact {
+            font-size: 1.4rem;
+            color: var(--black);
+            line-height: 1.8;
+        }
+
+        .contact-us .team-member .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.8rem 0;
+            gap: 0.8rem;
+        }
+
+        .contact-us .team-member .contact-item .icon {
+            width: 2rem;
+            height: 2rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        .contact-us .team-member .contact a {
+            color: var(--black);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid transparent;
+        }
+
+        .contact-us .team-member .contact a:hover {
+            color: var(--yellow);
+            background: rgba(245, 197, 24, 0.1);
+            border-color: var(--yellow);
+        }
+
+        .contact-us .contact-form-container {
+            max-width: 90rem;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-us .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-primary);
+            border-radius: 2rem;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-us .contact-form-container:hover::before {
+            opacity: 1;
+        }
+
+        .contact-us .contact-form-container h2 {
+            font-size: 3rem;
+            color: var(--black);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-us .contact-form-container .form-subtitle {
+            font-size: 1.6rem;
+            color: var(--light-color);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-us .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-us .contact-form .form-group {
+            position: relative;
+        }
+
+        .contact-us .contact-form .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .contact-us .contact-form input,
+        .contact-us .contact-form textarea,
+        .contact-us .contact-form select {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--black);
+            background: #f8f9fa; /* Changed from rgba(245, 197, 24, 0.05) for better visibility */
+            border: 2px solid #d1d1d1; /* Changed to a darker gray for contrast */
+            border-radius: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-us .contact-form textarea {
+            height: 15rem;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .contact-us .contact-form input:focus,
+        .contact-us .contact-form textarea:focus,
+        .contact-us .contact-form select:focus {
+            border-color: var(--yellow);
+            box-shadow: 0 0 0 3px rgba(245, 197, 24, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .contact-us .contact-form label {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 1.4rem;
+            color: var(--light-color);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: #f8f9fa; /* Match input background for consistency */
+            padding: 0 0.5rem;
+        }
+
+        .contact-us .contact-form input:focus + label,
+        .contact-us .contact-form textarea:focus + label,
+        .contact-us .contact-form select:focus + label,
+        .contact-us .contact-form input:not(:placeholder-shown) + label,
+        .contact-us .contact-form textarea:not(:placeholder-shown) + label {
+            top: -0.8rem;
+            left: 1rem;
+            font-size: 1.2rem;
+            color: var(--yellow);
+            background: var(--white);
+        }
+
+        .contact-us .contact-form .btn-container {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-us .contact-form .btn {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            font-size: 1.8rem;
+            color: var(--white);
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-us .contact-form .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .contact-us .contact-form .btn:hover::before {
+            left: 100%;
+        }
+
+        .contact-us .contact-form .btn:hover {
+            background: var(--gradient-secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .contact-us .contact-form .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .contact-us .form-message {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.6rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-us .form-message.success {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.2);
+        }
+
+        .contact-us .form-message.error {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.2);
+        }
+
+        .contact-us .additional-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-us .info-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(245, 197, 24, 0.2);
+        }
+
+        .contact-us .info-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-us .info-card .icon {
+            width: 6rem;
+            height: 6rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        .contact-us .info-card h3 {
+            font-size: 2rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .contact-us .info-card p {
+            font-size: 1.5rem;
+            color: var(--light-color);
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-us .team-member,
+        .contact-us .contact-form-container,
+        .contact-us .info-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .contact-us .team-member:nth-child(1) { animation-delay: 0.1s; }
+        .contact-us .team-member:nth-child(2) { animation-delay: 0.2s; }
+        .contact-us .team-member:nth-child(3) { animation-delay: 0.3s; }
+        .contact-us .team-member:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .contact-us {
+                padding: 3rem 1rem;
+            }
+
+            .contact-us .heading {
+                font-size: 2.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .contact-us .section-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .contact-us .team-container {
+                grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+                gap: 2rem;
+                margin-bottom: 4rem;
+            }
+
+            .contact-us .team-member {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-us .team-member .avatar {
+                width: 6rem;
+                height: 6rem;
+                font-size: 2.5rem;
+            }
+
+            .contact-us .team-member h3 {
+                font-size: 1.8rem;
+            }
+
+            .contact-us .team-member .role {
+                font-size: 1.4rem;
+            }
+
+            .contact-us .team-member .contact {
+                font-size: 1.3rem;
+            }
+
+            .contact-us .contact-form-container {
+                padding: 2.5rem;
+            }
+
+            .contact-us .contact-form-container h2 {
+                font-size: 2.5rem;
+            }
+
+            .contact-us .contact-form {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-us .contact-form .btn {
+                padding: 1.2rem 3rem;
+                font-size: 1.6rem;
+            }
+
+            .contact-us .additional-info {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .contact-us .team-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-us .contact-form input,
+            .contact-us .contact-form textarea {
+                font-size: 1.4rem;
+                padding: 1.2rem;
+            }
+
+            .contact-us .contact-form .btn {
+                font-size: 1.4rem;
+                padding: 1rem 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="contact-us" id="contact-us">
+        <div class="section-header">
+            <h1 class="heading">Meet Our Team</h1>
+            <p class="section-subtitle">Experienced professionals dedicated to bringing your vision to life</p>
+        </div>
         
-        <div class="cta-buttons">
-          <a href="tel:+254700123456" class="btn btn-primary">
-            <i class="fas fa-phone"></i> Schedule Site Visit
-          </a>
-          <a href="mailto:info@katanisprings.co.ke?subject=Payment%20Plan%20Inquiry&body=Hello,%20I%20would%20like%20to%20inquire%20about%20the%20payment%20plan%20for%20Katani%20Springs%20Estate." class="btn btn-secondary">
-            <i class="fas fa-calculator"></i> Get Payment Plan
-          </a>
-          <a href="data:text/plain;charset=utf-8,KATANI SPRINGS ESTATE BROCHURE%0A%0AProperty: 3-Bedroom Bungalow%0ALocation: Spring Road Estate, Katani%0APrice: KES 14,000,000%0APlot Size: 50x100 feet%0AFloor Area: 168m²%0A%0AFeatures:%0A- Spacious Lounge: 27m²%0A- Elegant Dining: 13.4m²%0A- Modern Kitchen: 14m²%0A- 3 Ensuite Bedrooms%0A- Master with Walk-in Wardrobe%0A- Detached Ensuite SQ%0A%0ALocation Benefits:%0A- 30 minutes to Nairobi CBD%0A- Near SGR Syokimau Station%0A- Fully serviced plot%0A- Secure gated community%0A%0AContact: +254 700 123 456%0AEmail: info@katanisprings.co.ke" download="Katani_Springs_Estate_Brochure.txt" class="btn btn-outline">
-            <i class="fas fa-download"></i> Download Brochure
-          </a>
-        </div>
-
-        <div class="contact-info">
-          <h4>Contact Our Sales Team</h4>
-          <div class="contact-grid">
-            <a href="tel:+254700123456" class="contact-item">
-              <i class="fas fa-phone"></i>
-              <span>+254 700 123 456</span>
-            </a>
-            <a href="https://wa.me/254700123456?text=Hello,%20I%20am%20interested%20in%20Katani%20Springs%20Estate" class="contact-item">
-              <i class="fab fa-whatsapp"></i>
-              <span>+254 700 123 456</span>
-            </a>
-            <a href="mailto:info@katanisprings.co.ke?subject=Katani%20Springs%20Estate%20Inquiry" class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>info@katanisprings.co.ke</span>
-            </a>
-            <div class="contact-item">
-              <i class="fas fa-clock"></i>
-              <span>Mon-Sat: 8AM-6PM</span>
+        <div class="team-container">
+            <div class="team-member">
+                <div class="avatar">SW</div>
+                <h3>Susan Wambui Njoroge</h3>
+                <p class="role">Director</p>
+                <div class="contact">
+                    <div class="contact-item">
+                        <span class="icon">📱</span>
+                        <a href="tel:+254745778512">+254 745 778 512</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📞</span>
+                        <a href="tel:+16477043688">+1 647 704 3688</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-/* Featured Project Styles - Add to your existing CSS */
-.projects .featured-badge {
-  display: inline-block;
-  background: var(--yellow);
-  color: var(--white);
-  padding: 0.8rem 2rem;
-  border-radius: 5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
-  width: 100%;
-}
-
-.projects .project-container {
-  background: var(--white);
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: var(--box-shadow);
-  margin-bottom: 3rem;
-  max-width: 120rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.projects .project-header {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 3rem 2rem;
-  text-align: center;
-  border-bottom: 3px solid var(--yellow);
-}
-
-.projects .project-title {
-  font-size: 2.8rem;
-  color: var(--white);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-transform: capitalize;
-}
-
-.projects .project-location {
-  font-size: 1.4rem;
-  color: var(--light-color);
-  margin-bottom: 2rem;
-}
-
-.projects .project-location i {
-  color: var(--yellow);
-  margin-right: 0.5rem;
-}
-
-.projects .price-banner {
-  background: var(--yellow);
-  color: var(--white);
-  padding: 2rem;
-  margin: 2rem auto;
-  border-radius: 1rem;
-  text-align: center;
-  max-width: 40rem;
-}
-
-.projects .price-banner h3 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-}
-
-.projects .price-banner .price {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.projects .price-banner .price-note {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-.projects .project-content {
-  padding: 3rem 2rem;
-  background: var(--white);
-}
-
-.projects .project-overview {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-
-.projects .project-description h3 {
-  font-size: 2.2rem;
-  color: var(--black);
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.projects .project-description p {
-  font-size: 1.6rem;
-  color: var(--light-color);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.projects .key-highlights {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 1rem;
-  border-left: 5px solid var(--yellow);
-}
-
-.projects .key-highlights h4 {
-  font-size: 1.8rem;
-  color: var(--black);
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.projects .key-highlights ul {
-  list-style: none;
-}
-
-.projects .key-highlights ul li {
-  font-size: 1.4rem;
-  color: var(--light-color);
-  padding: 0.5rem 0;
-  position: relative;
-  padding-left: 2rem;
-}
-
-.projects .key-highlights ul li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--yellow);
-  font-weight: bold;
-}
-
-.projects .features-section {
-  margin-bottom: 3rem;
-}
-
-.projects .features-section h3 {
-  font-size: 2.2rem;
-  color: var(--black);
-  margin-bottom: 2rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-.projects .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  gap: 2rem;
-}
-
-.projects .feature-card {
-  background: var(--white);
-  border: 1px solid #eee;
-  border-radius: 1rem;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.projects .feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--yellow);
-}
-
-.projects .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--box-shadow);
-}
-
-.projects .feature-card i {
-  font-size: 3rem;
-  color: var(--yellow);
-  margin-bottom: 1rem;
-}
-
-.projects .feature-card h4 {
-  font-size: 1.8rem;
-  color: var(--black);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.projects .feature-card ul {
-  list-style: none;
-  text-align: left;
-}
-
-.projects .feature-card ul li {
-  font-size: 1.4rem;
-  color: var(--light-color);
-  padding: 0.3rem 0;
-  border-bottom: 1px solid #eee;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.projects .feature-card ul li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--yellow);
-  font-weight: bold;
-}
-
-.projects .feature-card ul li:last-child {
-  border-bottom: none;
-}
-
-.projects .visual-section {
-  margin-bottom: 3rem;
-}
-
-.projects .visual-section h3 {
-  font-size: 2.2rem;
-  color: var(--black);
-  margin-bottom: 2rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-.projects .visual-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-  gap: 2rem;
-}
-
-.projects .visual-card {
-  background: var(--white);
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  border: 1px solid #eee;
-}
-
-.projects .visual-card:hover {
-  transform: translateY(-5px);
-}
-
-.projects .visual-placeholder {
-  height: 18rem;
-  background: linear-gradient(135deg, var(--black) 0%, #333 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-}
-
-.projects .visual-placeholder::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 4rem;
-  height: 4rem;
-  border: 2px solid var(--yellow);
-  border-radius: 50%;
-  border-top: 2px solid transparent;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.projects .visual-placeholder-content {
-  z-index: 1;
-  position: relative;
-}
-
-.projects .visual-placeholder i {
-  font-size: 3rem;
-  color: var(--yellow);
-  margin-bottom: 1rem;
-}
-
-.projects .visual-placeholder p {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.projects .visual-card-content {
-  padding: 1.5rem;
-}
-
-.projects .visual-card h4 {
-  font-size: 1.6rem;
-  color: var(--black);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.projects .visual-card p {
-  color: var(--light-color);
-  font-size: 1.4rem;
-  line-height: 1.6;
-}
-
-.projects .cta-section {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 3rem 2rem;
-  border-radius: 1rem;
-  text-align: center;
-}
-
-.projects .cta-section h3 {
-  font-size: 2.2rem;
-  color: var(--white);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.projects .cta-section .cta-subtitle {
-  font-size: 1.4rem;
-  color: var(--light-color);
-  margin-bottom: 2rem;
-}
-
-.projects .cta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 3rem;
-}
-
-.projects .btn {
-  padding: 1.2rem 2.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  text-transform: capitalize;
-}
-
-.projects .btn-primary {
-  background: var(--yellow);
-  color: var(--white);
-}
-
-.projects .btn-primary:hover {
-  background: #e67e22;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
-}
-
-.projects .btn-secondary {
-  background: var(--black);
-  color: var(--white);
-}
-
-.projects .btn-secondary:hover {
-  background: #333;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.projects .btn-outline {
-  background: transparent;
-  color: var(--white);
-  border: 2px solid var(--white);
-}
-
-.projects .btn-outline:hover {
-  background: var(--white);
-  color: var(--black);
-}
-
-.projects .contact-info {
-  background: rgba(0, 0, 0, 0.3);
-  color: var(--white);
-  padding: 2rem;
-  border-radius: 1rem;
-  margin-top: 2rem;
-}
-
-.projects .contact-info h4 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: var(--yellow);
-  text-align: center;
-}
-
-.projects .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  gap: 1.5rem;
-}
-
-.projects .contact-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.4rem;
-  color: var(--white);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.projects .contact-item:hover {
-  color: var(--yellow);
-}
-
-.projects .contact-item i {
-  color: var(--yellow);
-  width: 2rem;
-  text-align: center;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .projects .project-overview {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .projects .project-content {
-    padding: 2rem 1rem;
-  }
-
-  .projects .project-header {
-    padding: 2rem 1rem;
-  }
-
-  .projects .price-banner .price {
-    font-size: 2.5rem;
-  }
-
-  .projects .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .projects .visual-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .projects .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .projects .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 450px) {
-  .projects .project-title {
-    font-size: 2rem;
-  }
-
-  .projects .btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-  }
-
-  .projects .cta-section {
-    padding: 2rem 1rem;
-  }
-
-  .projects .contact-info {
-    padding: 1.5rem;
-  }
-}
-</style>
-
-<a href="tel:+254700123456" class="btn">Reach out to our team for enquiries</a>
-<!-- projects section ends -->
-
-
-<!-- contact us section starts -->
-<section class="contact-us" id="contact-us">
-  <h1 class="heading">Our Team</h1>
-  <div class="team-container">
-    
-    <div class="team-member">
-      <h3>Susan Wambui Njoroge</h3>
-      <p class="role">Director</p>
-      <p class="contact">Contact: <a href="tel:+254745778512">+254 745 778 512</a> | <a href="tel:+16477043688">+1 647 704 3688</a></p>
-    </div>
-    <div class="team-member">
-      <h3>Morris Waithaka</h3>
-      <p class="role">Director</p>
-      <p class="contact">Contact: <a href="tel:+254723760352">+254 723 760 352</a></p>
-    </div>
-    <div class="team-member">
-      <h3>Boniface Njuguna Njoroge</h3>
-      <p class="role">Director</p>
-      <p class="contact">Contact: <a href="tel:+254720903569">+254 720 903 569</a></p>
-    </div>
-    <div class="team-member">
-      <h3>Architect Julia Kamweru</h3>
-      <p class="role">Project Manager & Marketing</p>
-      <p class="contact">Contact: <a href="tel:+254703358650">+254 703 358 650</a></p>
-    </div>
-  </div>
-  <div class="contact-form-container">
-    <h2>Contact Us</h2>
-    <form action="./send_email.php" method="post" class="contact-form" id="contact-form">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Your Email" required>
-      </div>
-      <div class="form-group">
-        <textarea name="message" placeholder="Your Message" required></textarea>
-      </div>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-    <p class="form-message" id="form-message"></p>
-  </div>
-</section>
-<!-- contact us section ends -->
-
-
-          </ul>
-
-        </div>
-      </section>
-
-
-      <section class="cta">
-        <div class="container">
-
-          <div class="cta-card">
-            <div class="card-content">
-              <h2 class="h2 card-title">Looking for a dream home?</h2>
-
-              <p class="card-text">We can help you realize your dream of a new home</p>
+            
+            <div class="team-member">
+                <div class="avatar">MW</div>
+                <h3>Morris Waithaka</h3>
+                <p class="role">Director</p>
+                <div class="contact">
+                    <div class="contact-item">
+                        <span class="icon">📱</span>
+                        <a href="tel:+254723760352">+254 723 760 352</a>
+                    </div>
+                </div>
             </div>
-
-            <button class="btn cta-btn">
-              <span>Explore Properties</span>
-
-              <ion-icon name="arrow-forward-outline"></ion-icon>
-            </button>
-          </div>
-
+            
+            <div class="team-member">
+                <div class="avatar">BN</div>
+                <h3>Boniface Njuguna Njoroge</h3>
+                <p class="role">Director</p>
+                <div class="contact">
+                    <div class="contact-item">
+                        <span class="icon">📱</span>
+                        <a href="tel:+254720903569">+254 720 903 569</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="avatar">JK</div>
+                <h3>Architect Julia Kamweru</h3>
+                <p class="role">Project Manager & Marketing</p>
+                <div class="contact">
+                    <div class="contact-item">
+                        <span class="icon">📱</span>
+                        <a href="tel:+254703358650">+254 703 358 650</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+        
+        <div class="contact-form-container">
+            <h2>Get In Touch</h2>
+            <p class="form-subtitle">Ready to start your project? We'd love to hear from you!</p>
+            
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder=" " required>
+                    <label>Your Name</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" name="email" placeholder=" " required>
+                    <label>Your Email</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder=" ">
+                    <label>Phone Number</label>
+                </div>
+                
+                <div class="form-group">
+                    <select name="service" required>
+                        <option value=""></option>
+                        <option value="architecture">Architecture Design</option>
+                        <option value="construction">Construction</option>
+                        <option value="renovation">Renovation</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <label>Service Type</label>
+                </div>
+                
+                <div class="form-group full-width">
+                    <textarea name="message" placeholder=" " required></textarea>
+                    <label>Your Message</label>
+                </div>
+                
+                <div class="btn-container">
+                    <button type="submit" class="btn">Send Message</button>
+                </div>
+            </form>
+            
+            <p class="form-message" id="form-message"></p>
+        </div>
+        
+        <div class="additional-info">
+            <div class="info-card">
+                <div class="icon">🏢</div>
+                <h3>Office Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM<br>Sunday: Closed</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="icon">📍</div>
+                <h3>Location</h3>
+                <p>Trust building  2nd floor room 22, Nairobi Kenya<br></p>
+            </div>
+            
+            <div class="info-card">
+                <div class="icon">⚡</div>
+                <h3>Response Time</h3>
+                <p>We typically respond to inquiries within 24 hours during business days</p>
+            </div>
+        </div>
+    </section>
 
-    </article>
+    <script>
+        // Form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('form-message');
+            const formData = new FormData(this);
+            
+            // Simulate form submission
+            formMessage.textContent = 'Sending message...';
+            formMessage.className = 'form-message';
+            
+            setTimeout(() => {
+                formMessage.textContent = 'Thank you for your message! We\'ll get back to you soon.';
+                formMessage.className = 'form-message success';
+                this.reset();
+            }, 2000);
+        });
+
+        // Enhanced hover effects
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-1rem) scale(1.02)';
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form field animations
+        const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form select');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+    <script>
+        // Form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('form-message');
+            const formData = new FormData(this);
+            
+            // Simulate form submission
+            formMessage.textContent = 'Sending message...';
+            formMessage.className = 'form-message';
+            
+            setTimeout(() => {
+                formMessage.textContent = 'Thank you for your message! We\'ll get back to you soon.';
+                formMessage.className = 'form-message success';
+                this.reset();
+            }, 2000);
+        });
+
+        // Enhanced hover effects
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-1rem) scale(1.02)';
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form field animations
+        const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form select');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <div class="card-content">
+          <h2 class="h2 card-title">Looking for a dream home?</h2>
+          <p class="card-text">We can help you realize your dream of a new home</p>
+        </div>
+        <button class="btn cta-btn">
+          <span>Explore Properties</span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  </article>
   </main>
 
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
+  <!-- Footer -->
   <footer class="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div class="footer-brand">
-        <a href="#" class="logo">
-          <div class="logo-content">
-            <i class="fas fa-building"></i>
-            <span class="logo-text">Makeover Real Estate & Building Contractors Limited</span>
-          </div>
-        </a>
-        <p class="section-text">
-          Makeover Real Estate & Building Contractors Limited is a premier provider of luxurious homes and innovative construction solutions in Nairobi, Kenya. With a commitment to excellence, we deliver bespoke designs and high-quality projects tailored to your dreams.
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-content">
+              <i class="fas fa-building"></i>
+              <span class="logo-text">Makeover Real Estate & Building Contractors Limited</span>
+            </div>
+          </a>
+          <p class="section-text">
+            Makeover Real Estate & Building Contractors Limited is a premier provider of luxurious homes and innovative construction solutions in Nairobi, Kenya. With a commitment to excellence, we deliver bespoke designs and high-quality projects tailored to your dreams.
+          </p>
+          <ul class="contact-list">
+            <li>
+              <a href="#" class="contact-link">
+                <ion-icon name="location-outline"></ion-icon>
+                <address>Nairobi, Kenya</address>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+254720903569" class="contact-link">
+                <ion-icon name="call-outline"></ion-icon>
+                <span>+254 720903569</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:realestateandbuildingcompany@gmail.com" class="contact-link">
+                <ion-icon name="mail-outline"></ion-icon>
+                <span>realestateandbuildingcompany@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" target="_blank">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" target="_blank">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" target="_blank">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-link-box">
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Company</p>
+            </li>
+            <li>
+              <a href="#about" class="footer-link">About Us</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Projects</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Our Team</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Locations</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+            <li>
+              <a href="#contact-us" class="footer-link">Contact</a>
+            </li>
+          </ul>
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Services</p>
+            </li>
+            <li>
+              <a href="#services" class="footer-link">Construction</a>
+            </li>
+            <li>
+              <a href="#services" class="footer-link">Design</a>
+            </li>
+            <li>
+              <a href="#services" class="footer-link">Renovation</a>
+            </li>
+            <li>
+              <a href="#services" class="footer-link">Consulting</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Project Management</a>
+            </li>
+          </ul>
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Support</p>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Customer Service</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Request a Quote</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Contact Support</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          © 2025 Makeover Real Estate & Building Contractors Limited. All Rights Reserved
         </p>
-        <ul class="contact-list">
-          <li>
-            <a href="#" class="contact-link">
-              <ion-icon name="location-outline"></ion-icon>
-              <address>Nairobi, Kenya</address>
-            </a>
-          </li>
-          <li>
-            <a href="tel:+254723760352" class="contact-link">
-              <ion-icon name="call-outline"></ion-icon>
-              <span>+254 720903569</span>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:realestateandbuildingcompany@gmail.com" class="contact-link">
-              <ion-icon name="mail-outline"></ion-icon>
-              <span>realestateandbuildingcompany@gmail.com</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="social-list">
-          <li>
-            <a href="#" class="social-link" target="_blank">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" target="_blank">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" target="_blank">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" target="_blank">
-              <ion-icon name="logo-youtube"></ion-icon>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-link-box">
-        <ul class="footer-list">
-          <li>
-            <p class="footer-list-title">Company</p>
-          </li>
-          <li>
-            <a href="#about" class="footer-link">About Us</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Projects</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Our Team</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Locations</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">FAQ</a>
-          </li>
-          <li>
-            <a href="#contact-us" class="footer-link">Contact</a>
-          </li>
-        </ul>
-        <ul class="footer-list">
-          <li>
-            <p class="footer-list-title">Services</p>
-          </li>
-          <li>
-            <a href="#services" class="footer-link">Construction</a>
-          </li>
-          <li>
-            <a href="#services" class="footer-link">Design</a>
-          </li>
-          <li>
-            <a href="#services" class="footer-link">Renovation</a>
-          </li>
-          <li>
-            <a href="#services" class="footer-link">Consulting</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Project Management</a>
-          </li>
-        </ul>
-        <ul class="footer-list">
-          <li>
-            <p class="footer-list-title">Support</p>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Customer Service</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Request a Quote</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Terms & Conditions</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Contact Support</a>
-          </li>
-        </ul>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
+  </footer>
+
+  <!-- Contact Bar -->
+  <div class="contact-bar">
     <div class="container">
-      <p class="copyright">
-        © 2025 Makeover Real Estate & Building Contractors Limited. All Rights Reserved
-      </p>
+      <div class="contact-bar-info">
+        <a href="mailto:realestateandbuildingcompany@gmail.com">
+          <i class="fas fa-envelope"></i>
+          <span>realestateandbuildingcompany@gmail.com</span>
+        </a>
+        <a href="tel:+254703358650">
+          <i class="fas fa-phone"></i>
+          <span>+254703 358 650</span>
+        </a>
+         <a href="tel:+1 647 704 3688">
+          <i class="fas fa-phone"></i>
+          <span>+1 647 7043688</span>
+        </a
+      </div>
+      <ul class="contact-bar-social-list">
+        <li><a href="https://www.facebook.com/share/1A9r4M7C3t/?mibextid=wwXIfr" class="contact-bar-social-link"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="#" class="contact-bar-social-link"><i class="fab fa-tiktok"></i></a></li>
+        <li><a href="https://www.instagram.com/makeover_realestate?igsh=eDB4ZHUybHlraGsy&utm_source=qr" class="contact-bar-social-link"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#" class="contact-bar-social-link"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
+      <a href="tel:+254703 358 650" class="btn">Call Us Now</a>
     </div>
   </div>
-</footer>
+
+  <script>
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const totalSlides = slides.length;
+    const slideInterval = 5000; // 5 seconds
+    let slideTimer;
+    let progressTimer;
+
+    function initSlideshow() {
+      showSlide(currentSlideIndex);
+      startAutoSlide();
+    }
+
+    function showSlide(index) {
+      slides.forEach(slide => {
+        slide.classList.remove('active');
+      });
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+      });
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      updateProgressBar();
+    }
+
+    function nextSlide() {
+      currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+      showSlide(currentSlideIndex);
+    }
+
+    function prevSlide() {
+      currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlideIndex);
+    }
+
+    function changeSlide(direction) {
+      clearInterval(slideTimer);
+      clearInterval(progressTimer);
+      if (direction === 1) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+      startAutoSlide();
+    }
+
+    function currentSlide(index) {
+      clearInterval(slideTimer);
+      clearInterval(progressTimer);
+      currentSlideIndex = index - 1;
+      showSlide(currentSlideIndex);
+      startAutoSlide();
+    }
+
+    function startAutoSlide() {
+      slideTimer = setInterval(nextSlide, slideInterval);
+      startProgressBar();
+    }
+
+    function startProgressBar() {
+      const progressBar = document.querySelector('.hero-progress-bar');
+      let width = 0;
+      progressTimer = setInterval(() => {
+        width += 100 / (slideInterval / 100);
+        progressBar.style.width = width + '%';
+        if (width >= 100) {
+          width = 0;
+          progressBar.style.width = '0%';
+        }
+      }, 100);
+    }
+
+    function updateProgressBar() {
+      const progressBar = document.querySelector('.hero-progress-bar');
+      progressBar.style.width = '0%';
+    }
+
+    const heroSection = document.querySelector('.hero');
+    heroSection.addEventListener('mouseenter', () => {
+      clearInterval(slideTimer);
+      clearInterval(progressTimer);
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      startAutoSlide();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        changeSlide(-1);
+      } else if (e.key === 'ArrowRight') {
+        changeSlide(1);
+      }
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    heroSection.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    heroSection.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          changeSlide(1);
+        } else {
+          changeSlide(-1);
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initSlideshow);
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        clearInterval(slideTimer);
+        clearInterval(progressTimer);
+      } else {
+        startAutoSlide();
+      }
+    });
+  </script>
+</body>
+</html>
